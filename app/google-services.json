@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1045625910760",
+    "project_id": "smarthrt-5d732",
+    "storage_bucket": "smarthrt-5d732.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045625910760:android:bbcbfa74d0c78df286605d",
+        "android_client_info": {
+          "package_name": "com.first_java_app.smarthrt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045625910760-4nuusutvmncuiuqij0o2cm8mkumshqen.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4eikPsI3VGlvDF8K6yLu3y4xrNV6pHNA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1045625910760-4nuusutvmncuiuqij0o2cm8mkumshqen.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
