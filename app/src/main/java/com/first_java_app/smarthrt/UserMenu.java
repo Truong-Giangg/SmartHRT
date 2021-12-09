@@ -46,6 +46,13 @@ public class UserMenu extends AppCompatActivity {
         String user_phoneNo =intent.getStringExtra("phoneNo");
         String user_password =intent.getStringExtra("password");
 
+        //--------------push data to MainMenu acctivity via username------------
+        Intent intent1 =new Intent(getApplicationContext(),MainMenu.class);
+        intent1.putExtra("username",user_username);
+        startActivity(intent1);
+        //--------------end push data to MainMenu acctivity via username------------
+
+
         fullNameLabel.setText(user_name);
         userNameLabel.setText(user_username);
         fullName.getEditText().setText(user_name);
