@@ -29,9 +29,19 @@
         <activity
             android:name=".handGesture"
             android:exported="true" />
+
+        <activity
+            android:name=".alarmMainActivity"
+            android:exported="true"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
+
+
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,6 +52,13 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+
+        <receiver android:name=".AlarmReceiver"/>
+        <service android:name=".Music"
+            android:enabled="true"/>
+
+
     </application>
 
 </manifest>

@@ -52,6 +52,19 @@
         android:onClick="gotoGesture"
         android:text="Gesture" />
 
+
+    <Button
+        android:id="@+id/alarmBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
+        android:onClick="gotoAlarm"
+        android:text="Alarm" />
+
+
     <Button
         android:id="@+id/voiceBtn"
         android:layout_width="wrap_content"

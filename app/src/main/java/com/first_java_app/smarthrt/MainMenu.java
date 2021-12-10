@@ -190,4 +190,9 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
         Intent intent =new Intent(MainMenu.this,handGesture.class);
         startActivity(intent);
     }
+
+    public void gotoAlarm(View view){
+        Intent intent =new Intent(MainMenu.this,alarmMainActivity.class);
+        startActivity(intent);
+    }
 }
