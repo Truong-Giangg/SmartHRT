@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 
 public class MainMenu extends AppCompatActivity implements View.OnClickListener{
     Button addWidget;
+    Button rmWidget;
     Button addedWidget[]= new Button[8];
     Drawable btnDraw;
     Drawable btnDraw1;
@@ -54,11 +56,13 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
         setContentView(R.layout.activity_main_menu);
         activity = MainMenu.this;// for .setBackground()
         addWidget = findViewById(R.id.addWidgetBtn);
+        rmWidget = findViewById(R.id.rmWidgetBtn);
         layout = findViewById(R.id.layout);
         widgetName = (EditText) findViewById(R.id.widgetName);
         btnDraw = getResources().getDrawable(R.drawable.btn_bg);
         btnDraw1 = getResources().getDrawable(R.drawable.btn_bg_1);
         addWidget.setOnClickListener(MainMenu.this);
+        rmWidget.setOnClickListener(MainMenu.this);
 
         //--------------fetch data from previous activity----------
         reference = FirebaseDatabase.getInstance().getReference("users");
@@ -128,6 +132,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View view) {
         if(view.getId() == R.id.addWidgetBtn){
             widgetName_s = widgetName.getText().toString();
+            widgetName.setText("");//clear the field when button pushed
             addedWidget[currentWidget] = new Button(MainMenu.this);
             addedWidget[currentWidget].setText(widgetName_s);
             addedWidget[currentWidget].setId(BtnID[currentWidget]);
@@ -137,6 +142,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
             LinearLayout ll = (LinearLayout)findViewById(R.id.layout);
 
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
             lp.setMargins(10,10,10,10); //for better layout
             ll.addView(addedWidget[currentWidget], lp);
             System.out.println("new button id = "+BtnID[currentWidget]);
@@ -151,6 +157,17 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
             reference.child(widgetID).setValue(helperClass);
 
             currentWidget++;
+        }
+        if(view.getId() == R.id.rmWidgetBtn){   // remove button
+            widgetName_s = widgetName.getText().toString();
+            for(int i=0; i<currentWidget;i++){
+                if(widgetName_s.equals(addedWidget[i].getText())){
+                    reference.child(String.valueOf(addedWidget[i].getId())).removeValue();
+                }
+            }
+            //to refresh an Activity from within itself.
+            finish();
+            startActivity(getIntent());
         }
         for(int i=0; i<currentWidget;i++){
             if(view.getId() ==BtnID[i]){
