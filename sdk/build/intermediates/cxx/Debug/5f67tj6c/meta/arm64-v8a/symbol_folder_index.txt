@@ -1,0 +1,1 @@
+D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\build\intermediates\cxx\Debug\5f67tj6c\obj\arm64-v8a
