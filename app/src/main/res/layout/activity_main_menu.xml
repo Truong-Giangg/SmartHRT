@@ -11,35 +11,51 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/widgetName"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="enter widget's name" />
-        <Button
-            android:id="@+id/addWidget"
+            android:orientation="horizontal"
+            android:weightSum="1" >
+            <EditText
+                android:id="@+id/widgetName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="enter widget's name" />
+            <Button
+                android:id="@+id/addWidgetBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Add" />
+
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Add" />
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/addWidget"
-            android:layout_centerHorizontal="true">
-            <LinearLayout
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <ScrollView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/layout">
-            </LinearLayout>
-        </ScrollView>
-
+                android:layout_below="@+id/addWidget"
+                android:layout_centerHorizontal="true">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/layout">
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
     </LinearLayout>
+
+
+
 
     <Button
         android:id="@+id/gestureBtn"

@@ -53,7 +53,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         activity = MainMenu.this;// for .setBackground()
-        addWidget = findViewById(R.id.addWidget);
+        addWidget = findViewById(R.id.addWidgetBtn);
         layout = findViewById(R.id.layout);
         widgetName = (EditText) findViewById(R.id.widgetName);
         btnDraw = getResources().getDrawable(R.drawable.btn_bg);
@@ -126,7 +126,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.addWidget){
+        if(view.getId() == R.id.addWidgetBtn){
             widgetName_s = widgetName.getText().toString();
             addedWidget[currentWidget] = new Button(MainMenu.this);
             addedWidget[currentWidget].setText(widgetName_s);

@@ -16,7 +16,9 @@
         android:theme="@style/Theme.SmartHRT">
         <activity
             android:name=".MainMenu"
+            android:windowSoftInputMode="stateHidden"
             android:exported="true" />
+
         <activity
             android:name=".UserMenu"
             android:exported="true" />
