@@ -34,6 +34,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
     EditText widgetName;
     String widgetName_s;
     String btnValue[]=new String[8];
+
     public static int[] BtnID= {1, 2, 3, 4, 5, 6, 7, 8};
     public static int currentWidget = 0;
     ArrayList<String> list = new ArrayList<>();
@@ -59,13 +60,15 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
         btnDraw1 = getResources().getDrawable(R.drawable.btn_bg_1);
         addWidget.setOnClickListener(MainMenu.this);
 
-        //--------------fetch data from previous acctivity----------
+        //--------------fetch data from previous activity----------
         reference = FirebaseDatabase.getInstance().getReference("users");
         Intent intent =getIntent();
-        String user_username_gadget =intent.getStringExtra("username");
-        //--------------end fetch data from previous acctivity----------
+        if(intent.getStringExtra("username")!=null){
+            MainActivity.user_username_gadget =intent.getStringExtra("username");
+        }
+        //--------------end fetch data from previous activity----------
         rootNode = FirebaseDatabase.getInstance();
-        reference = rootNode.getReference().child("users").child(user_username_gadget).child("user's gadget");
+        reference = rootNode.getReference().child("users").child(MainActivity.user_username_gadget).child("user's gadget");
 //        reference = rootNode.getReference().child("user's widget");
 
         // fetch data from firebase when first run
@@ -182,5 +185,9 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
                 System.out.println("new button "+i+" pushed");
             }
         }
+    }
+    public void gotoGesture(View view){
+        Intent intent =new Intent(MainMenu.this,handGesture.class);
+        startActivity(intent);
     }
 }
