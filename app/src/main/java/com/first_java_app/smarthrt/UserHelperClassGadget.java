@@ -1,13 +1,14 @@
 package com.first_java_app.smarthrt;
 
 public class UserHelperClassGadget {
-    String BtnID, btnValue, btnName;
+    String BtnID, btnValue, btnName,widType;
 
     public UserHelperClassGadget() { }
-    public UserHelperClassGadget(String BtnID, String btnName, String btnValue){
+    public UserHelperClassGadget(String BtnID, String btnName, String btnValue, String widType){
         this.BtnID=BtnID;
         this.btnValue=btnValue;
         this.btnName=btnName;
+        this.widType=widType;
 
     }
     public String getBtnID() {
@@ -30,5 +31,11 @@ public class UserHelperClassGadget {
 
     public void setbtnName(String btnName) {
         this.btnName = btnName;
+    }
+    public String getWidType() {
+        return widType;
+    }
+    public void setWidType(String widType) {
+        this.widType = widType;
     }
 }

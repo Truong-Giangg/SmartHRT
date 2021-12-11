@@ -17,7 +17,7 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="10dp"
-            android:weightSum="1" >
+            android:weightSum="4" >
 
             <EditText
                 android:id="@+id/widgetName"
@@ -25,20 +25,31 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:ems="8"
+                android:layout_weight="1"
                 android:inputType="textPersonName"
                 android:hint="enter widget's name" />
             <Button
-                android:id="@+id/addWidgetBtn"
-                android:layout_width="wrap_content"
+                android:id="@+id/addWidgetSlider"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-
+                android:layout_weight="1"
+                android:layout_marginRight="2dp"
+                android:layout_centerHorizontal="true"
+                android:text="+" />
+            <Button
+                android:id="@+id/addWidgetBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_marginRight="2dp"
                 android:layout_centerHorizontal="true"
                 android:text="+" />
             <Button
                 android:id="@+id/rmWidgetBtn"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="2dp"
                 android:layout_centerHorizontal="true"
                 android:text="-" />
 
@@ -58,7 +69,7 @@
                 android:layout_gravity="center"
                 android:layout_centerHorizontal="true">
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:orientation="vertical"
