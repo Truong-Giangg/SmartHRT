@@ -8,16 +8,19 @@
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/btn_bg.xml" value="0.2703125" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/btn_bg_1.xml" value="0.2703125" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/menu.xml" value="0.2703125" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/seek_bar.xml" value="0.2703125" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/seek_bar_background.xml" value="0.2703125" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/seek_bar_progress.xml" value="0.2703125" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/seek_bar_progress_fill.xml" value="0.2703125" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/font/acme.xml" value="0.284375" />
+        <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/layout/activity_addwidget.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/layout/activity_main_gesture.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/layout/activity_main_menu.xml" value="0.2" />
+        <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/layout/activity_main_menu.xml" value="0.4" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/layout/activity_newbtnname.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/layout/activity_removewidget.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/layout/activity_sign_up.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/layout/activity_user_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/layout/header.xml" value="0.25416666666666665" />

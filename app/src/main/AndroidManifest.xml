@@ -32,6 +32,12 @@
             android:name=".handGesture"
             android:exported="true" />
         <activity
+            android:name=".addWidget"
+            android:exported="true" />
+        <activity
+            android:name=".removeWidget"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
