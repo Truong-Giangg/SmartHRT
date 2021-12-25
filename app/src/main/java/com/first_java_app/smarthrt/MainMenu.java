@@ -21,26 +21,28 @@ import java.util.ArrayList;
 
 public class MainMenu extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, CompoundButton.OnCheckedChangeListener{
 
-    Switch addedWidget[]= new Switch[8];
-    SeekBar addedWidgetSB[]= new SeekBar[8];
+    public static Switch[] addedWidgetSW;
+    public static SeekBar[] addedWidgetSB;
+    public static TextView[] addedWidgetTX;
     Drawable btnDraw;
     Drawable btnDraw1;
 
     LinearLayout layout;
-    String btnValue[]=new String[8];
-    String btnType[]=new String[8];
-    String SeekBName[]=new String[8];
+    String[] btnValue;
+    String[] btnType;
+    String[] SeekBName;
+    String[] txViewName;
 
-    public static int[] BtnID= {1, 2, 3, 4, 5, 6, 7, 8};
+    public static int[] BtnID;
     public static int currentWidget = 0;
 
     Activity activity;	// for .setBackground()
 
     ArrayList<String> list = new ArrayList<>();
-    String[] userDataGetId = new String[8];
-    String[] userDataGetName = new String[8];
-    String[] userDataGetValue = new String[8];
-    String[] userDataGetType = new String[8];
+    String[] userDataGetId;
+    String[] userDataGetName;
+    String[] userDataGetValue;
+    String[] userDataGetType;
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
@@ -70,6 +72,19 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list.clear();
                 int userNum = 0;
+                int size = (int) dataSnapshot.getChildrenCount();
+                userDataGetId = new String[size];
+                userDataGetName = new String[size];
+                userDataGetValue = new String[size];
+                userDataGetType = new String[size];
+                btnValue=new String[size];
+                btnType=new String[size];
+                SeekBName=new String[size];
+                txViewName = new String[size];
+                addedWidgetSW= new Switch[size];
+                addedWidgetSB= new SeekBar[size];
+                addedWidgetTX= new TextView[size];
+                BtnID = new int[size];
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     list.add(snapshot.getValue().toString());
                     UserHelperClassGadget userget = snapshot.getValue(UserHelperClassGadget.class);//get data store to class
@@ -81,13 +96,18 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
                 }
                 for(int i=0; i<list.size();i++){ // list.size = userNum
                     if(userDataGetType[i].equals("button")){
-                        createSwitch(addedWidget,i,userDataGetType[i],userDataGetId[i],userDataGetName[i],userDataGetValue[i]);
+                        createSwitch(addedWidgetSW,i,userDataGetType[i],userDataGetId[i],userDataGetName[i],userDataGetValue[i]);
 
                     }
                     if(userDataGetType[i].equals("seekbar")){
                         createSeekBar(addedWidgetSB,i,userDataGetType[i],userDataGetId[i],userDataGetName[i],userDataGetValue[i]);
 
                     }
+                    if(userDataGetType[i].equals("temperature")){
+                        createTemp(addedWidgetTX,i,userDataGetType[i],userDataGetId[i],userDataGetName[i],userDataGetValue[i]);
+
+                    }
+                    BtnID[i] = Integer.parseInt(userDataGetId[i]);
                 }
                 currentWidget = list.size();
             }
@@ -96,11 +116,28 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
 
             }
         });
+        reference.addValueEventListener(new ValueEventListener() {        // get data from firebase when change
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int userNum = 0;
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    UserHelperClassGadget userget = snapshot.getValue(UserHelperClassGadget.class);//get data store to class
+                    if(userget.getWidType().equals("temperature")){
+                        addedWidgetTX[userNum].setText(userget.getbtnValue());
+                    }
+                    userNum++;
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
     }
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
         for(int i=0; i<currentWidget;i++){
-            if(seekBar.getId() ==BtnID[i]){
+            if(seekBar.getId() == BtnID[i]){
                 if(btnType[i].equals("seekbar")){
                     btnValue[i] = String.valueOf(progress);
                 }
@@ -113,6 +150,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
         for(int i=0; i<currentWidget;i++){
+
             if(seekBar.getId() ==BtnID[i]){
                 if(btnType[i].equals("seekbar")){
                     pushSbData2Firebase(addedWidgetSB,i,String.valueOf(addedWidgetSB[i].getId()));
@@ -128,28 +166,29 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
         for(int i=0; i<currentWidget;i++){
             if(buttonView.getId() ==BtnID[i]){
                 if(btnType[i].equals("button")){
-                    pushSwData2Firebase(addedWidget,i,String.valueOf(addedWidget[i].getId()));
+                    pushSwData2Firebase(addedWidgetSW,i,String.valueOf(addedWidgetSW[i].getId()));
                 }
             }
         }
     }
     public void createSwitch(Switch sw[], int count, String swType,String swId, String swName, String swValue){
-        addedWidget[count] = new Switch(MainMenu.this);
-        addedWidget[count].setText(swName);
-        addedWidget[count].setId(Integer.parseInt(swId));
+        addedWidgetSW[count] = new Switch(MainMenu.this);
+        addedWidgetSW[count].setText(swName);
+        addedWidgetSW[count].setId(Integer.parseInt(swId));
         btnType[count] = swType;
         btnValue[count] = swValue;  //get button data
         createLayoutForSwitches(sw, count);
-        addedWidget[count] = findViewById(Integer.parseInt(swId));
-        addedWidget[count].setOnCheckedChangeListener(MainMenu.this::onCheckedChanged);// calling onClick() method for new button
+        addedWidgetSW[count] = findViewById(Integer.parseInt(swId));
+        addedWidgetSW[count].setOnCheckedChangeListener(MainMenu.this::onCheckedChanged);// calling onClick() method for new button
         if(btnValue[count].equals("1")){
 //            activity.findViewById(addedWidget[count].getId()).setBackground(btnDraw);
-            addedWidget[count].setChecked(true); //set the current state of a Switch
+            addedWidgetSW[count].setChecked(true); //set the current state of a Switch
         }else{
 //            activity.findViewById(addedWidget[count].getId()).setBackground(btnDraw1);
-            addedWidget[count].setChecked(false);
+            addedWidgetSW[count].setChecked(false);
         }
     }
+
     public void createSeekBar(SeekBar sb[], int count, String sbType,String sbId, String sbName, String sbValue){
         addedWidgetSB[count] = new SeekBar(MainMenu.this);
         SeekBName[count] = sbName;
@@ -163,6 +202,15 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
         addedWidgetSB[count].setProgress(Integer.parseInt(sbValue));
 //        addedWidgetSB[count].setProgressDrawable(getResources().getDrawable(R.drawable.seek_bar));
         //https://coderedirect.com/questions/270994/how-to-set-android-seekbar-progress-drawable-programmatically
+    }
+    public void createTemp(TextView tx[], int count, String txType,String txId, String txName, String txValue){
+        addedWidgetTX[count] = new TextView(MainMenu.this);
+        addedWidgetTX[count].setId(Integer.parseInt(txId));
+        txViewName[count]= txName;
+        btnType[count]=txType;
+        btnValue[count] = txValue;
+        createLayoutForTemp(tx,count);
+        addedWidgetTX[count].setText(txValue);
     }
     public void createLayoutForSwitches(Switch sw[], int count){
         LinearLayout ll = (LinearLayout)findViewById(R.id.layoutswitch);
@@ -187,11 +235,24 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
         ll.addView(sb[count], lp);
         activity.findViewById(sb[count].getId()).setBackground(btnDraw1);
     }
+    public void createLayoutForTemp(TextView tx[], int count){
+        LinearLayout ll = (LinearLayout)findViewById(R.id.layoutTemp);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        lp.setMargins(10,30,10,30); //for better layout
+        if(tx[count].getParent() != null) {
+            ((ViewGroup)tx[count].getParent()).removeView(tx[count]); // <- fix
+        }
+        TextView textView = new TextView(MainMenu.this);
+        textView.setText(txViewName[count]);
+        ll.addView(textView);
+        ll.addView(tx[count], lp);
+        activity.findViewById(tx[count].getId()).setBackground(btnDraw1);
+    }
     public void pushSwData2Firebase(Switch sw[],int count,String firebaseChild){
-        String widgetID  =String.valueOf(addedWidget[count].getId());   //int to string
-        String widgetName = addedWidget[count].getText().toString();
+        String widgetID  =String.valueOf(addedWidgetSW[count].getId());   //int to string
+        String widgetName = addedWidgetSW[count].getText().toString();
         String widgetType = btnType[count];
-        if(addedWidget[count].isChecked()){
+        if(addedWidgetSW[count].isChecked()){
             btnValue[count]="1";
             String widgetBtnValue = btnValue[count];
             UserHelperClassGadget helperClass =new UserHelperClassGadget(widgetID, widgetName, widgetBtnValue,widgetType);
@@ -219,7 +280,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
         //--------------push data to MainMenu acctivity via username------------
         Intent intent =new Intent(MainMenu.this,addWidget.class);
         intent.putExtra("username",MainActivity.user_username_gadget);
-        intent.putExtra("widgetid",String.valueOf(currentWidget));
+        intent.putExtra("widgetChild",String.valueOf(currentWidget));
         startActivity(intent);
         //--------------end push data to MainMenu acctivity via username------------
     }
@@ -227,7 +288,6 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
         //--------------push data to MainMenu acctivity via username------------
         Intent intent =new Intent(MainMenu.this,removeWidget.class);
         intent.putExtra("username",MainActivity.user_username_gadget);
-        intent.putExtra("widgetid",String.valueOf(currentWidget));
         startActivity(intent);
         //--------------end push data to MainMenu acctivity via username------------
     }

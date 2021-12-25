@@ -92,6 +92,7 @@ public class removeWidget extends AppCompatActivity implements View.OnClickListe
         //--------------push data to MainMenu acctivity via username------------
         Intent intent =new Intent(getApplicationContext(),MainMenu.class);
         intent.putExtra("username",MainActivity.user_username_gadget);
+
         startActivity(intent);
         //--------------end push data to MainMenu acctivity via username------------
     }

@@ -73,19 +73,25 @@
                 android:layout_centerHorizontal="true"
                 android:text="Switch" />
 
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp">
+            <Button
+                android:id="@+id/addWidgetTemp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_centerHorizontal="true"
+                android:text="Temperature sensor" />
+
         </LinearLayout>
     </LinearLayout>
-<!--    <Button-->
-<!--        android:id="@+id/WidgetBtnAdd"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:ems="15"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginBottom="310dip"-->
-<!--        android:onClick="gobackMainMenu"-->
-<!--        android:text="Add Widget" />-->
-
-
 
 </RelativeLayout>

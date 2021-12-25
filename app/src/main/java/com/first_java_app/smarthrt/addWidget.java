@@ -5,20 +5,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class addWidget extends AppCompatActivity implements View.OnClickListener{
     Button addWidgetSwitch;
     Button addWidgetSlider;
+    Button addWidgetTemp;
     EditText widgetNameAdd;
 
     String widgetName_s;
     String widgetType;
-    int widgetId;
+    int widgetChild;
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
@@ -29,19 +36,21 @@ public class addWidget extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_addwidget);
         addWidgetSwitch = findViewById(R.id.addWidgetSwitch);
         addWidgetSlider = findViewById(R.id.addWidgetSlider);
+        addWidgetTemp = findViewById(R.id.addWidgetTemp);
         widgetNameAdd = findViewById(R.id.widgetNameAdd);
         addWidgetSlider.setOnClickListener(addWidget.this);
         addWidgetSwitch.setOnClickListener(addWidget.this);
+        addWidgetTemp.setOnClickListener(addWidget.this);
         //--------------fetch data from previous activity----------
         reference = FirebaseDatabase.getInstance().getReference("users");
         Intent intent =getIntent();
         if(intent.getStringExtra("username")!=null){
             MainActivity.user_username_gadget =intent.getStringExtra("username");
         }
-        if(intent.getStringExtra("widgetid")!=null){
-            MainActivity.widgetid =intent.getStringExtra("widgetid");
+        if(intent.getStringExtra("widgetChild")!=null){
+            MainActivity.widgetChild =intent.getStringExtra("widgetChild");
         }
-        widgetId = Integer.parseInt(MainActivity.widgetid);
+        widgetChild = Integer.parseInt(MainActivity.widgetChild);
         //--------------end fetch data from previous activity----------
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference().child("users").child(MainActivity.user_username_gadget).child("user's gadget");
@@ -60,15 +69,27 @@ public class addWidget extends AppCompatActivity implements View.OnClickListener
             widgetType = "seekbar";
             gobackMainMenu(view);
         }
+        if(view.getId() == R.id.addWidgetTemp){
+            widgetName_s = widgetNameAdd.getText().toString();
+            widgetNameAdd.setText("");//clear the field when button pushed
+            widgetType = "temperature";
+            gobackMainMenu(view);
+        }
     }
     public void gobackMainMenu(View view){
-        widgetId++;
-        UserHelperClassGadget helperClass =new UserHelperClassGadget(String.valueOf(widgetId), widgetName_s, "0",widgetType);
-        reference.child(String.valueOf(widgetId)).setValue(helperClass);
-        //--------------push data to MainMenu acctivity via username------------
-        Intent intent =new Intent(getApplicationContext(),MainMenu.class);
-        intent.putExtra("username",MainActivity.user_username_gadget);
-        startActivity(intent);
-        //--------------end push data to MainMenu acctivity via username------------
+        widgetChild++;
+        UserHelperClassGadget helperClass =new UserHelperClassGadget(String.valueOf(widgetChild), widgetName_s, "0",widgetType);
+        reference.child(String.valueOf(widgetChild)).setValue(helperClass).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                //--------------push data to MainMenu acctivity via username------------
+                Intent intent =new Intent(getApplicationContext(),MainMenu.class);
+                intent.putExtra("username",MainActivity.user_username_gadget);
+                startActivity(intent);
+                //--------------end push data to MainMenu acctivity via username------------
+            }
+        });
+
+
     }
 }
