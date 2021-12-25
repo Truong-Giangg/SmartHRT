@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Studio/SmartHRT/app/src/main/res/layout/activity_addwidget.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Studio/SmartHRT/app/src/main/res/layout/activity_ip_camere.xml" value="0.33" />
+        <entry key="..\:/Android Studio/SmartHRT/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Studio/SmartHRT/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Studio/SmartHRT/app/src/main/res/layout/activity_main_gesture.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Studio/SmartHRT/app/src/main/res/layout/activity_main_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Studio/SmartHRT/app/src/main/res/layout/activity_removewidget.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Studio/SmartHRT/app/src/main/res/layout/activity_sign_up.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Studio/SmartHRT/app/src/main/res/layout/activity_user_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Studio/SmartHRT/app/src/main/res/layout/header.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/add_widget.xml" value="0.2703125" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/btn_bg.xml" value="0.2703125" />

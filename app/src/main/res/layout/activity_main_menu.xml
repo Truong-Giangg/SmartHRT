@@ -102,14 +102,26 @@
             </ScrollView>
         </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/ip_cam_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="171dp"
+        android:ems="10"
+        android:onClick="gotoIpCamera"
+        android:text="IP camera" />
+
     <Button
         android:id="@+id/gestureBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="110dip"
+        android:ems="10"
         android:onClick="gotoGesture"
         android:text="Gesture" />
 

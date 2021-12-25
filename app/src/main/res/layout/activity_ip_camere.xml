@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ipCamere"
+    tools:ignore="MissingClass">
+
+    <com.marcoscg.ipcamview.IPCamView
+        android:id="@+id/ip_cam_view"
+        android:layout_width="408dp"
+        android:layout_height="442dp"
+        android:scaleType="fitCenter"
+        app:interval="1500"
+        app:url="YOUR_STREAM_URL"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="-2dp" />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        app:layout_constraintBottom_toTopOf="@+id/url"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ip_cam_view" />
+
+    <EditText
+        android:id="@+id/url"
+        android:layout_width="257dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="72dp"
+        android:hint="URL"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
