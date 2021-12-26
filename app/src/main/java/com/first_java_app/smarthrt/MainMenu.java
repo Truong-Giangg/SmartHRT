@@ -272,8 +272,12 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
         UserHelperClassGadget helperClass =new UserHelperClassGadget(widgetID, widgetName, widgetBtnValue,widgetType);
         reference.child(firebaseChild).setValue(helperClass);
     }
-    public void gotoGesture(View view){
-        Intent intent =new Intent(MainMenu.this,handGesture.class);
+    public void gotoGesture(View view) {
+        Intent intent = new Intent(MainMenu.this, handGesture.class);
+        startActivity(intent);
+    }
+    public void gotoIpCamera(View view){
+        Intent intent =new Intent(MainMenu.this,ipCamere.class);
         startActivity(intent);
     }
     public void gotoaddWidget(View view){
