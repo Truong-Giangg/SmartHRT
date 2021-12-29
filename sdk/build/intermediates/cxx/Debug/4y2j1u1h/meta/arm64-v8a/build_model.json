@@ -1,0 +1,172 @@
+{
+  "abi": "ARM64_V8A",
+  "info": {
+    "abi": "ARM64_V8A",
+    "bitness": 64,
+    "deprecated": false,
+    "default": true
+  },
+  "cxxBuildFolder": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\.cxx\\Debug\\4y2j1u1h\\arm64-v8a",
+  "soFolder": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\build\\intermediates\\cxx\\Debug\\4y2j1u1h\\obj\\arm64-v8a",
+  "soRepublishFolder": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a",
+  "abiPlatformVersion": 24,
+  "cmake": {
+    "effectiveConfiguration": {
+      "inheritEnvironments": [],
+      "variables": []
+    }
+  },
+  "variant": {
+    "buildSystemArgumentList": [
+      "-DANDROID_STL\u003dc++_shared"
+    ],
+    "cFlagsList": [],
+    "cppFlagsList": [],
+    "variantName": "debug",
+    "soFolder": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\build\\intermediates\\cxx\\Debug\\4y2j1u1h\\obj",
+    "soRepublishFolder": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\build\\intermediates\\cmake\\debug\\obj",
+    "cxxBuildFolder": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\.cxx\\Debug\\4y2j1u1h",
+    "intermediatesFolder": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\build\\intermediates\\cxx\\Debug\\4y2j1u1h",
+    "isDebuggableEnabled": true,
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
+    ],
+    "buildTargetSet": [
+      "opencv_jni_shared"
+    ],
+    "implicitBuildTargetSet": [],
+    "cmakeSettingsConfiguration": "android-gradle-plugin-predetermined-name",
+    "module": {
+      "cxxFolder": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\.cxx",
+      "intermediatesBaseFolder": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\build\\intermediates",
+      "intermediatesFolder": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\build\\intermediates\\cxx",
+      "gradleModulePathName": ":sdk",
+      "moduleRootFolder": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk",
+      "moduleBuildFile": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\build.gradle",
+      "makeFile": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\libcxx_helper\\CMakeLists.txt",
+      "buildSystem": "CMAKE",
+      "ndkFolder": "C:\\Users\\Minh Chi\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529",
+      "ndkVersion": "21.4.7075529",
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultStl": "LIBCXX_STATIC",
+      "ndkMetaPlatforms": {
+        "min": 16,
+        "max": 30,
+        "aliases": {
+          "20": 19,
+          "25": 24,
+          "J": 16,
+          "J-MR1": 17,
+          "J-MR2": 18,
+          "K": 19,
+          "L": 21,
+          "L-MR1": 22,
+          "M": 23,
+          "N": 24,
+          "N-MR1": 24,
+          "O": 26,
+          "O-MR1": 27,
+          "P": 28,
+          "Q": 29,
+          "R": 30
+        }
+      },
+      "ndkMetaAbiList": [
+        {
+          "abi": "ARMEABI_V7A",
+          "bitness": 32,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "ARM64_V8A",
+          "bitness": 64,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "X86",
+          "bitness": 32,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "X86_64",
+          "bitness": 64,
+          "deprecated": false,
+          "default": true
+        }
+      ],
+      "cmakeToolchainFile": "C:\\Users\\Minh Chi\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake",
+      "cmake": {
+        "isValidCmakeAvailable": true,
+        "cmakeExe": "C:\\Users\\Minh Chi\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe",
+        "minimumCmakeVersion": "3.10.2",
+        "ninjaExe": "C:\\Users\\Minh Chi\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe"
+      },
+      "stlSharedObjectMap": {
+        "LIBCXX_SHARED": {
+          "ARMEABI_V7A": "C:\\Users\\Minh Chi\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
+          "ARM64_V8A": "C:\\Users\\Minh Chi\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
+          "X86": "C:\\Users\\Minh Chi\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
+          "X86_64": "C:\\Users\\Minh Chi\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
+        },
+        "LIBCXX_STATIC": {},
+        "NONE": {},
+        "SYSTEM": {}
+      },
+      "project": {
+        "rootBuildGradleFolder": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT",
+        "sdkFolder": "C:\\Users\\Minh Chi\\AppData\\Local\\Android\\Sdk",
+        "isBuildOnlyTargetAbiEnabled": true,
+        "isCmakeBuildCohabitationEnabled": false,
+        "isPrefabEnabled": false
+      },
+      "nativeBuildOutputLevel": "QUIET"
+    },
+    "prefabClassPathFileCollection": [],
+    "prefabPackageDirectoryListFileCollection": [],
+    "stlType": "c++_shared",
+    "optimizationTag": "Debug"
+  },
+  "buildSettings": {
+    "environmentVariables": []
+  },
+  "prefabFolder": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\.cxx\\Debug\\4y2j1u1h\\prefab\\arm64-v8a",
+  "isActiveAbi": true,
+  "fullConfigurationHash": "4y2j1u1h2f3c3z7654a4z6b4y6b5k3x29c1l6n76w6j4b1y1i6w4u19s2i4a",
+  "configurationArguments": [
+    "-HC:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\libcxx_helper",
+    "-DCMAKE_SYSTEM_NAME\u003dAndroid",
+    "-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON",
+    "-DCMAKE_SYSTEM_VERSION\u003d24",
+    "-DANDROID_PLATFORM\u003dandroid-24",
+    "-DANDROID_ABI\u003darm64-v8a",
+    "-DCMAKE_ANDROID_ARCH_ABI\u003darm64-v8a",
+    "-DANDROID_NDK\u003dC:\\Users\\Minh Chi\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529",
+    "-DCMAKE_ANDROID_NDK\u003dC:\\Users\\Minh Chi\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529",
+    "-DCMAKE_TOOLCHAIN_FILE\u003dC:\\Users\\Minh Chi\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake",
+    "-DCMAKE_MAKE_PROGRAM\u003dC:\\Users\\Minh Chi\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dC:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\build\\intermediates\\cxx\\Debug\\4y2j1u1h\\obj\\arm64-v8a",
+    "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dC:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\build\\intermediates\\cxx\\Debug\\4y2j1u1h\\obj\\arm64-v8a",
+    "-DCMAKE_BUILD_TYPE\u003dDebug",
+    "-BC:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\.cxx\\Debug\\4y2j1u1h\\arm64-v8a",
+    "-GNinja",
+    "-DANDROID_STL\u003dc++_shared"
+  ],
+  "stlLibraryFile": "C:\\Users\\Minh Chi\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so"
+}
