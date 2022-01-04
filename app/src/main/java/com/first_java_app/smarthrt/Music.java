@@ -37,6 +37,8 @@ public class Music extends Service {
         if(id == 1){
             mediaPlayer =MediaPlayer.create(this,R.raw.nokia_tune_original_ringtone_alarm);
             mediaPlayer.start();
+
+
             new CountDownTimer(2000, 100) {
                 @Override
                 public void onTick(long millisUntilFinished) {

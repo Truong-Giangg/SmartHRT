@@ -29,7 +29,10 @@
     "intermediatesFolder": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT\\sdk\\build\\intermediates\\cxx\\Debug\\4y2j1u1h",
     "isDebuggableEnabled": true,
     "validAbiList": [
-      "X86"
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
     ],
     "buildTargetSet": [
       "opencv_jni_shared"
@@ -130,7 +133,6 @@
         "rootBuildGradleFolder": "C:\\Users\\Minh Chi\\AndroidStudioProjects\\SmartHRT",
         "sdkFolder": "C:\\Users\\Minh Chi\\AppData\\Local\\Android\\Sdk",
         "isBuildOnlyTargetAbiEnabled": true,
-        "ideBuildTargetAbi": "x86",
         "isCmakeBuildCohabitationEnabled": false,
         "isPrefabEnabled": false
       },
