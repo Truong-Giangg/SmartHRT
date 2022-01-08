@@ -32,6 +32,10 @@
         android:theme="@style/Theme.SmartHRT"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".gestureList"/>
+        <activity
+            android:name=".addGesture"/>
+        <activity
             android:name=".CameraActivity"/>
         <activity
             android:name=".ipCamere"
@@ -51,6 +55,9 @@
             android:exported="true" />
         <activity
             android:name=".alarmMainActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".addWidget"
             android:exported="true"/>
         <activity
             android:name=".removeWidget"

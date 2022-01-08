@@ -25,7 +25,7 @@ public class addWidget extends AppCompatActivity implements View.OnClickListener
 
     String widgetName_s;
     String widgetType;
-    int widgetChild;
+    int widgetChildH;
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
@@ -44,13 +44,13 @@ public class addWidget extends AppCompatActivity implements View.OnClickListener
         //--------------fetch data from previous activity----------
         reference = FirebaseDatabase.getInstance().getReference("users");
         Intent intent =getIntent();
-        if(intent.getStringExtra("username")!=null){
-            MainActivity.user_username_gadget =intent.getStringExtra("username");
-        }
+//        if(intent.getStringExtra("username")!=null){
+//            MainActivity.user_username_gadget =intent.getStringExtra("username");
+//        }
         if(intent.getStringExtra("widgetChild")!=null){
             MainActivity.widgetChild =intent.getStringExtra("widgetChild");
         }
-        widgetChild = Integer.parseInt(MainActivity.widgetChild);
+        widgetChildH = Integer.parseInt(MainActivity.widgetChild);
         //--------------end fetch data from previous activity----------
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference().child("users").child(MainActivity.user_username_gadget).child("user's gadget");
@@ -77,14 +77,15 @@ public class addWidget extends AppCompatActivity implements View.OnClickListener
         }
     }
     public void gobackMainMenu(View view){
-        widgetChild++;
-        UserHelperClassGadget helperClass =new UserHelperClassGadget(String.valueOf(widgetChild), widgetName_s, "0",widgetType);
-        reference.child(String.valueOf(widgetChild)).setValue(helperClass).addOnSuccessListener(new OnSuccessListener<Void>() {
+
+        UserHelperClassGadget helperClass =new UserHelperClassGadget(String.valueOf(widgetChildH), widgetName_s, "0",widgetType);
+        reference.child(String.valueOf(widgetChildH)).setValue(helperClass).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
+
                 //--------------push data to MainMenu acctivity via username------------
                 Intent intent =new Intent(getApplicationContext(),MainMenu.class);
-                intent.putExtra("username",MainActivity.user_username_gadget);
+                //intent.putExtra("username",MainActivity.user_username_gadget);
                 startActivity(intent);
                 //--------------end push data to MainMenu acctivity via username------------
             }

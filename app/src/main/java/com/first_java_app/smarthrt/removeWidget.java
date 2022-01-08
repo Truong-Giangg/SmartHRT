@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,15 +20,11 @@ public class removeWidget extends AppCompatActivity implements View.OnClickListe
     Button rmWidget;
     EditText widgetNameRm;
     boolean swap=false;
-    public static int currentWidget = 0;
+    public static int currentWidget;
     String widgetName_s;
 
-    int widgetId;
-    ArrayList<String> list = new ArrayList<>();
-    String[] userDataGetId = new String[8];
-    String[] userDataGetName = new String[8];
-    String[] userDataGetValue = new String[8];
-    String[] userDataGetType = new String[8];
+
+    UserHelperClassGadget[] userGet;
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
@@ -39,30 +36,22 @@ public class removeWidget extends AppCompatActivity implements View.OnClickListe
         rmWidget = findViewById(R.id.removeWidget);
         widgetNameRm = findViewById(R.id.widgetNamerm);
         rmWidget.setOnClickListener(removeWidget.this);
-        //--------------fetch data from previous activity----------
-        reference = FirebaseDatabase.getInstance().getReference("users");
-        Intent intent =getIntent();
-        if(intent.getStringExtra("username")!=null){
-            MainActivity.user_username_gadget =intent.getStringExtra("username");
-        }
-        //--------------end fetch data from previous activity----------
+
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference().child("users").child(MainActivity.user_username_gadget).child("user's gadget");
         reference.addListenerForSingleValueEvent(new ValueEventListener() { //get data from firebase only once
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list.clear();
-                int userNum = 1;
+                int userNum = 0;
+                int size = (int) dataSnapshot.getChildrenCount();
+                userGet = new UserHelperClassGadget[size];
+
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    list.add(snapshot.getValue().toString());
-                    UserHelperClassGadget userget = snapshot.getValue(UserHelperClassGadget.class);//get data store to class
-                    userDataGetId[userNum] = userget.getBtnID();
-                    userDataGetName[userNum] = userget.getbtnName();
-                    userDataGetValue[userNum] = userget.getbtnValue();
-                    userDataGetType[userNum] = userget.getWidType();
+                    userGet[userNum] = snapshot.getValue(UserHelperClassGadget.class);//get data store to class
                     userNum++;
                 }
-                currentWidget = list.size();
+                currentWidget = (int)dataSnapshot.getChildrenCount();
+                Toast.makeText(removeWidget.this, "currentWidget: "+currentWidget, Toast.LENGTH_LONG).show();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -74,26 +63,26 @@ public class removeWidget extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if(view.getId() == R.id.removeWidget){   // remove button
             widgetName_s = widgetNameRm.getText().toString();
-            for(int i=1; i<=currentWidget;i++){
-                if(widgetName_s.equals(userDataGetName[i])){ //delete child based on its name
-                    reference.child(userDataGetId[i]).removeValue();
+            for(int i=0; i<currentWidget;i++){
+                if(widgetName_s.equals(userGet[i].getbtnName())){ //delete child based on its name
+                    reference.child(userGet[i].getBtnID()).removeValue();
                     swap=true;
                 }
                 if(swap){ // create another child and move next data to it
-                    UserHelperClassGadget helperClass =new UserHelperClassGadget(userDataGetId[i], userDataGetName[i+1], userDataGetValue[i+1],userDataGetType[i+1]);
-                    reference.child(String.valueOf(i)).setValue(helperClass);
+                    if(i!=currentWidget-1){
+                        UserHelperClassGadget movedChild =new UserHelperClassGadget(userGet[i].getBtnID(), userGet[i+1].getbtnName(), userGet[i+1].getbtnValue(),userGet[i+1].getWidType());
+                        reference.child(String.valueOf(i)).setValue(movedChild);
+                        reference.child(String.valueOf(userGet[currentWidget-1].getBtnID())).removeValue();// delete the last child
+                    }
                 }
             }
-            reference.child(String.valueOf(userDataGetId[currentWidget])).removeValue();// delete the last child
+
             gobackMainMenu(view);
         }
     }
     public void gobackMainMenu(View view){
-        //--------------push data to MainMenu acctivity via username------------
         Intent intent =new Intent(getApplicationContext(),MainMenu.class);
-        intent.putExtra("username",MainActivity.user_username_gadget);
 
         startActivity(intent);
-        //--------------end push data to MainMenu acctivity via username------------
     }
 }

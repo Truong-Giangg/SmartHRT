@@ -4,27 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CameraActivity">
+    tools:context=".CameraActivity"
+     >
+
     <org.opencv.android.JavaCameraView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/frame_Surface"
         app:show_fps="true" />
-    <Button
-        android:id="@+id/button2"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:onClick="backHome"
-        android:text="back"
-        android:textSize="15dp" />
-    <Button
-        android:id="@+id/settingButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="setting"
-        android:textSize="15dp" />
+        android:weightSum="3">
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="backHome"
+            android:layout_weight="1"
+            android:text="back"
+            android:layout_marginRight="20dp"
+            android:textSize="15dp" />
+        <Button
+            android:id="@+id/settingButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:onClick="goAddGesture"
+            android:layout_weight="1"
+            android:text="setting"
+            android:textSize="15dp" />
+        <Button
+            android:id="@+id/listButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:onClick="goAddGesture"
+            android:text="list"
+            android:layout_weight="1"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+
+
 <!--    <TextView-->
 <!--        android:id="@+id/numberOfFingers"-->
 <!--        android:layout_width="wrap_content"-->
