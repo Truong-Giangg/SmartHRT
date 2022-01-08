@@ -1,5 +1,6 @@
 package com.first_java_app.smarthrt;
-
+// moi vao kiem tra tung switch: switch ung voi moi cu chi(a, b, c, d)
+// setting: them cu chi a, b, c, d vao tung swtich
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -48,6 +49,7 @@ public class objectDetectorClass {
     private int height=0;
     private  int width=0;
     private int Classification_Input_Size;
+    private String defaultGesture = "chưa cài đặt";
 
     objectDetectorClass(AssetManager assetManager, String modelPath, String labelPath, int inputSize, String classification_model, int classification_input_size) throws IOException{
         INPUT_SIZE=inputSize;
@@ -99,15 +101,13 @@ public class objectDetectorClass {
     // create new Mat function
     public Mat recognizeImage(Mat mat_image){
         // Rotate original image by 90 degree get get portrait frame
-
         // This will fix crashing problem of the app
-
         Mat rotated_mat_image=new Mat();
-
-        Mat a=mat_image.t();
-        Core.flip(a,rotated_mat_image,1);
+        //Mat a=mat_image.t();
+        //Core.flip(a,rotated_mat_image,1);
         // Release mat
-        a.release();
+        //a.release();
+        rotated_mat_image = mat_image; // not rotate for landscape
 
         // if you do not do this process you will get improper prediction, less no. of object
         // now convert it to bitmap
@@ -213,16 +213,14 @@ public class objectDetectorClass {
             }
 
         }
-        // select device and run
 
         // before returning rotate back by -90 degree
-
         // Do same here
-        Mat b=rotated_mat_image.t();
-        Core.flip(b,mat_image,0);
-        b.release();
-        // Now for second change go to CameraBridgeViewBase
-        return mat_image;
+        //Mat b=rotated_mat_image.t();
+        //Core.flip(b,mat_image,0);
+        //b.release();
+        //return mat_image;
+        return rotated_mat_image;
     }
 
     private String getAlphabets(float sign_v) {

@@ -2,11 +2,13 @@ package com.first_java_app.smarthrt;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.SurfaceView;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -68,12 +70,13 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
         setContentView(R.layout.activity_main_gesture);
 
         mOpenCvCameraView=(CameraBridgeViewBase) findViewById(R.id.frame_Surface);
-        CameraActivity.this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        CameraActivity.this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
         mOpenCvCameraView.setCameraPermissionGranted();// must have since opencv version 4.xx or higher
         mOpenCvCameraView.setCvCameraViewListener(this);
         try{
-            objectDetectorClass=new objectDetectorClass(getAssets(),"hand_model.tflite","custom_label.txt",300, "Sign_language_model.tflite", 96);
+            objectDetectorClass=new objectDetectorClass(getAssets(),"hand_model.tflite","hand_label.txt",300, "hand_gesture_model.tflite", 96);
             Log.d("MainActivity","Model is successfully loaded");
         }
         catch (IOException e){
@@ -130,5 +133,8 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
 
         return out;
     }
-
+    public void backHome(View view) {
+        Intent intent =new Intent(CameraActivity.this,MainMenu.class);
+        startActivity(intent);
+    }
 }
