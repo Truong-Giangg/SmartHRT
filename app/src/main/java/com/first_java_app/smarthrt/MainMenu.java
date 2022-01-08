@@ -296,4 +296,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
         startActivity(intent);
         //--------------end push data to MainMenu acctivity via username------------
     }
+    public void gotoAlarm(View view){
+        Intent intent =new Intent(MainMenu.this,alarmMainActivity.class);
+        startActivity(intent);
+    }
 }

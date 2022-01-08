@@ -132,7 +132,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="171dp"
+        android:layout_marginBottom="170dp"
         android:ems="10"
         android:onClick="gotoIpCamera"
         android:text="IP camera" />
@@ -143,10 +143,23 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="110dip"
+        android:layout_marginBottom="120dip"
         android:ems="10"
         android:onClick="gotoGesture"
         android:text="Gesture" />
+
+
+    <Button
+        android:id="@+id/alarmBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
+        android:onClick="gotoAlarm"
+        android:text="Alarm" />
+
 
     <Button
         android:id="@+id/voiceBtn"
@@ -155,6 +168,6 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:ems="10"
-        android:layout_marginBottom="50dip"
+        android:layout_marginBottom="20dip"
         android:text="Voice" />
 </RelativeLayout>
