@@ -17,7 +17,7 @@ public class UserMenu extends AppCompatActivity {
     TextView fullNameLabel, userNameLabel;
 
     // Global variable to hold user data inside this acctivity
-    String _USERNAME, _NAME, _EMAIL, _PHONENO, _PASSWORD;
+    String _USERNAME, _NAME, _EMAIL, _PHONENO, _PASSWORD, user_username;
     DatabaseReference reference;
 
     @Override
@@ -40,17 +40,13 @@ public class UserMenu extends AppCompatActivity {
 
     private void showAllUserData() {
         Intent intent =getIntent();
-        String user_username =intent.getStringExtra("username");
+        user_username =intent.getStringExtra("username");
         String user_name =intent.getStringExtra("name");
         String user_email =intent.getStringExtra("email");
         String user_phoneNo =intent.getStringExtra("phoneNo");
         String user_password =intent.getStringExtra("password");
 
-        //--------------push data to MainMenu acctivity via username------------
-        Intent intent1 =new Intent(getApplicationContext(),MainMenu.class);
-        intent1.putExtra("username",user_username);
-        startActivity(intent1);
-        //--------------end push data to MainMenu acctivity via username------------
+
 
 
         fullNameLabel.setText(user_name);
@@ -95,8 +91,13 @@ public class UserMenu extends AppCompatActivity {
     }
 
     public void continue123(View view){
-        Intent intent =new Intent(UserMenu.this,MainMenu.class);
+        //--------------push data to MainMenu acctivity via username------------
+        Intent intent =new Intent(getApplicationContext(),MainMenu.class);
+        intent.putExtra("username",user_username);
         startActivity(intent);
+        //--------------end push data to MainMenu acctivity via username------------
+//        Intent intent =new Intent(UserMenu.this,MainMenu.class);
+//        startActivity(intent);
     }
 }
 
