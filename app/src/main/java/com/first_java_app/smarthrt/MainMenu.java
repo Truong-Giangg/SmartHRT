@@ -273,8 +273,9 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
         reference.child(firebaseChild).setValue(helperClass);
     }
     public void gotoGesture(View view) {
-        Intent intent = new Intent(MainMenu.this, handGesture.class);
-        startActivity(intent);
+        //Intent intent = new Intent(MainMenu.this, handGesture.class);
+        //startActivity(intent);
+        startActivity(new Intent(MainMenu.this,CameraActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
     }
     public void gotoIpCamera(View view){
         Intent intent =new Intent(MainMenu.this,ipCamere.class);
@@ -300,3 +301,5 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
         startActivity(intent);
     }
 }
+// dang bat may ao đợi xíu
+// M đâu thấy

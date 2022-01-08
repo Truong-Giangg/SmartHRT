@@ -4,30 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".handGesture">
-
+    tools:context=".CameraActivity">
     <org.opencv.android.JavaCameraView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/myCameraView"
+        android:id="@+id/frame_Surface"
         app:show_fps="true" />
     <Button
         android:id="@+id/button2"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:onClick="backHome"
         android:text="back"
         android:textSize="15dp" />
-    <TextView
-        android:id="@+id/numberOfFingers"
+    <Button
+        android:id="@+id/settingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:paddingRight="20dp"
-        android:text="0"
-        android:textColor="@color/white"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="115dp" />
+        android:text="setting"
+        android:textSize="15dp" />
+<!--    <TextView-->
+<!--        android:id="@+id/numberOfFingers"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:paddingRight="20dp"-->
+<!--        android:text="0"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textAppearance="?android:attr/textAppearanceLarge"-->
+<!--        android:textSize="115dp" />-->
 
 </RelativeLayout>
