@@ -1,25 +1,25 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml:2:1-4:12
-INJECTED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml:2:1-4:12
-INJECTED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml:2:1-4:12
+ADDED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml:2:1-4:12
+INJECTED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml:2:1-4:12
+INJECTED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml:2:1-4:12
 	package
-		ADDED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml:3:7-27
-		INJECTED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml
-		INJECTED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml
+		ADDED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml:3:7-27
+		INJECTED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml
+		INJECTED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml
 	xmlns:android
-		ADDED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml:2:11-69
+		ADDED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml:2:11-69
 uses-sdk
-INJECTED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml
-INJECTED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml
-INJECTED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml
-INJECTED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml
+INJECTED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml
+INJECTED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml
+INJECTED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml
+INJECTED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml
-		ADDED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml
-		INJECTED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml
+		INJECTED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml
+		ADDED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml
+		INJECTED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml
-		ADDED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml
-		INJECTED from E:\Android Studio\SmartHRT\sdk\java\AndroidManifest.xml
+		INJECTED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml
+		ADDED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml
+		INJECTED from D:\Users\phamv\AndroidStudioProjects\SmartHRT\sdk\java\AndroidManifest.xml

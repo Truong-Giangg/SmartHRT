@@ -47,7 +47,7 @@ public class ipCamere extends AppCompatActivity {
              @Override
              public void onClick(View v) {
                  String ipCamPath = URL.getText().toString();
-                 //updateIPlist(ipCamPath);
+                 updateIPlist(ipCamPath);
                  String imgHtml = "<img src=\"http://"+ipCamPath+"/\">\n";
                  html = "<!DOCTYPE html>\n" +
                          "<html>\n" +
