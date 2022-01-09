@@ -50,6 +50,7 @@ public class objectDetectorClass {
     private  int width=0;
     private int Classification_Input_Size;
     private String defaultGesture = "chưa cài đặt";
+    public String alphaOut;
 
     objectDetectorClass(AssetManager assetManager, String modelPath, String labelPath, int inputSize, String classification_model, int classification_input_size) throws IOException{
         INPUT_SIZE=inputSize;
@@ -160,6 +161,7 @@ public class objectDetectorClass {
 
         // loop through each object
         // as output has only 10 boxes
+        alphaOut=null;
         for (int i=0;i<10;i++){
             // for here we are looping through each hand which is detected
             float class_value=(float) Array.get(Array.get(Object_class,0),i);
@@ -168,6 +170,7 @@ public class objectDetectorClass {
 
             // Here you can change threshold according to your model
             // Now we will do some change to improve app
+
             if(score_value>0.5){
                 Object box1=Array.get(Array.get(value,0),i);
                 // we are multiplying it with Original height and width of frame
@@ -207,6 +210,7 @@ public class objectDetectorClass {
 
                 // convert output_class_value to alphabet
                 String sign_val = getAlphabets(output_class_value[0][0]);
+                alphaOut = sign_val;
                 //              input/output        text            starting point              font size
                 Imgproc.putText(rotated_mat_image,""+sign_val,new Point(x1+10,y1+40),2,1.5,new Scalar(255, 255, 255, 255),2);
                 Imgproc.rectangle(rotated_mat_image,new Point(x1,y1),new Point(x2,y2),new Scalar(0, 255, 0, 255),2);

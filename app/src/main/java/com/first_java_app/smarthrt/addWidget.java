@@ -78,7 +78,7 @@ public class addWidget extends AppCompatActivity implements View.OnClickListener
     }
     public void gobackMainMenu(View view){
 
-        UserHelperClassGadget helperClass =new UserHelperClassGadget(String.valueOf(widgetChildH), widgetName_s, "0",widgetType);
+        UserHelperClassGadget helperClass =new UserHelperClassGadget(String.valueOf(widgetChildH), widgetName_s, "0",widgetType, "null");
         reference.child(String.valueOf(widgetChildH)).setValue(helperClass).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {

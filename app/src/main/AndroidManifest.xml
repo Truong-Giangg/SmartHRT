@@ -46,7 +46,9 @@
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".UserMenu"
-            android:exported="true" />
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden"
+            />
         <activity
             android:name=".SignUp"
             android:exported="true" />

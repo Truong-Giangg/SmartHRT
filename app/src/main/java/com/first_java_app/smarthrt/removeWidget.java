@@ -70,7 +70,7 @@ public class removeWidget extends AppCompatActivity implements View.OnClickListe
                 }
                 if(swap){ // create another child and move next data to it
                     if(i!=currentWidget-1){
-                        UserHelperClassGadget movedChild =new UserHelperClassGadget(userGet[i].getBtnID(), userGet[i+1].getbtnName(), userGet[i+1].getbtnValue(),userGet[i+1].getWidType());
+                        UserHelperClassGadget movedChild =new UserHelperClassGadget(userGet[i].getBtnID(), userGet[i+1].getbtnName(), userGet[i+1].getbtnValue(),userGet[i+1].getWidType(),userGet[i+1].getGestureT());
                         reference.child(String.valueOf(i)).setValue(movedChild);
                         reference.child(String.valueOf(userGet[currentWidget-1].getBtnID())).removeValue();// delete the last child
                     }

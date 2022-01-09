@@ -171,10 +171,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
         addedWidgetSW[count] = findViewById(Integer.parseInt(swId));
         addedWidgetSW[count].setOnCheckedChangeListener(MainMenu.this::onCheckedChanged);// calling onClick() method for new button
         if(btnValue[count].equals("1")){
-//            activity.findViewById(addedWidget[count].getId()).setBackground(btnDraw);
             addedWidgetSW[count].setChecked(true); //set the current state of a Switch
         }else{
-//            activity.findViewById(addedWidget[count].getId()).setBackground(btnDraw1);
             addedWidgetSW[count].setChecked(false);
         }
     }
@@ -239,28 +237,31 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
 
     }
     public void pushSwData2Firebase(Switch sw[],int count,String firebaseChild){
-        String widgetID  =String.valueOf(addedWidgetSW[count].getId());   //int to string
-        String widgetName = addedWidgetSW[count].getText().toString();
-        String widgetType = btnType[count];
+//        String widgetID  =String.valueOf(addedWidgetSW[count].getId());   //int to string
+//        String widgetName = addedWidgetSW[count].getText().toString();
+//        String widgetType = btnType[count];
         if(addedWidgetSW[count].isChecked()){
             btnValue[count]="1";
-            String widgetBtnValue = btnValue[count];
-            UserHelperClassGadget helperClass =new UserHelperClassGadget(widgetID, widgetName, widgetBtnValue,widgetType);
-            reference.child(firebaseChild).setValue(helperClass);
+            userGet[count].btnValue="1";
+            //String widgetBtnValue = btnValue[count];
+            //UserHelperClassGadget helperClass =new UserHelperClassGadget(widgetID, widgetName, widgetBtnValue,widgetType,userGet[count].getGestureT());
+            reference.child(firebaseChild).setValue(userGet[count]);
         }else{
             btnValue[count]="0";
-            String widgetBtnValue = btnValue[count];   //REMEMBER to update widgetBtnValue before push on database
-            UserHelperClassGadget helperClass =new UserHelperClassGadget(widgetID, widgetName, widgetBtnValue,widgetType);
-            reference.child(firebaseChild).setValue(helperClass);
+            userGet[count].btnValue="0";
+            //String widgetBtnValue = btnValue[count];   //REMEMBER to update widgetBtnValue before push on database
+            //UserHelperClassGadget helperClass =new UserHelperClassGadget(widgetID, widgetName, widgetBtnValue,widgetType,userGet[count].getGestureT());
+            reference.child(firebaseChild).setValue(userGet[count]);
         }
     }
     public void pushSbData2Firebase(SeekBar sb[],int count, String firebaseChild){
-        String widgetID  =String.valueOf(addedWidgetSB[count].getId());   //int to string
-        String widgetName = SeekBName[count];
-        String widgetBtnValue = String.valueOf(btnValue[count]);
-        String widgetType = btnType[count];
-        UserHelperClassGadget helperClass =new UserHelperClassGadget(widgetID, widgetName, widgetBtnValue,widgetType);
-        reference.child(firebaseChild).setValue(helperClass);
+        //String widgetID  =String.valueOf(addedWidgetSB[count].getId());   //int to string
+        //String widgetName = SeekBName[count];
+//        String widgetBtnValue = String.valueOf(btnValue[count]);
+        userGet[count].btnValue = String.valueOf(btnValue[count]);
+        //String widgetType = btnType[count];
+        //UserHelperClassGadget helperClass =new UserHelperClassGadget(widgetID, widgetName, widgetBtnValue,widgetType,userGet[count].getGestureT());
+        reference.child(firebaseChild).setValue(userGet[count]);
     }
     public void gotoGesture(View view) {
         //Intent intent = new Intent(MainMenu.this, handGesture.class);
