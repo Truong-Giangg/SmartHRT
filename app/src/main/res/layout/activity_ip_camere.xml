@@ -17,6 +17,7 @@
             android:id="@+id/webview"
             android:layout_width="match_parent"
             android:layout_height="450dp"
+            android:outlineAmbientShadowColor="@color/black"
             />
     </LinearLayout>
     <Button
@@ -28,18 +29,21 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="150dip"
         android:ems="10"/>
-    <EditText
+
+    <AutoCompleteTextView
         android:id="@+id/url"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
         android:layout_alignParentBottom="true"
-        android:ems="10"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="210dip"
         android:ellipsize="start"
+        android:ems="10"
+        android:completionThreshold="1"
         android:gravity="center_horizontal"
         android:hint="URL"
-        android:textSize="28sp"/>
+        android:textSize="28sp" />
+    
 
 </RelativeLayout>
