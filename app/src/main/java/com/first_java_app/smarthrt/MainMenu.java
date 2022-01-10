@@ -49,7 +49,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
 
 
         //--------------fetch data from previous activity----------
-        reference = FirebaseDatabase.getInstance().getReference("users");
+        //reference = FirebaseDatabase.getInstance().getReference("users");
         Intent intent =getIntent();
         if(intent.getStringExtra("username")!=null){
             MainActivity.user_username_gadget =intent.getStringExtra("username");

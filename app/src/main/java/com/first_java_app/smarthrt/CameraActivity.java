@@ -206,4 +206,8 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
         Intent intent =new Intent(CameraActivity.this,addGesture.class);
         startActivity(intent);
     }
+    public void goSwitchGesture(View view) {
+        Intent intent =new Intent(CameraActivity.this,switchGesture.class);
+        startActivity(intent);
+    }
 }
