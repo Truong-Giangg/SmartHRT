@@ -1,15 +1,16 @@
 package com.first_java_app.smarthrt;
 
 public class UserHelperClassGadget {
-    String BtnID, btnValue, btnName,widType, gestureT;
+    String BtnID, btnValue, btnName,widType, gestureT, espPin;
 
     public UserHelperClassGadget() { }
-    public UserHelperClassGadget(String BtnID, String btnName, String btnValue, String widType,String gestureT){
+    public UserHelperClassGadget(String BtnID, String btnName, String btnValue, String widType,String gestureT, String espPin){
         this.BtnID=BtnID;
         this.btnValue=btnValue;
         this.btnName=btnName;
         this.widType=widType;
         this.gestureT=gestureT;
+        this.espPin=espPin;
 
     }
     public String getBtnID() {
@@ -45,5 +46,12 @@ public class UserHelperClassGadget {
     }
     public void setGestureT(String gestureT) {
         this.gestureT = gestureT;
+    }
+
+    public String getEspPin() {
+        return espPin;
+    }
+    public void setEspPin(String espPin) {
+        this.espPin = espPin;
     }
 }

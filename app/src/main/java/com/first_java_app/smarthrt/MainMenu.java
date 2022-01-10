@@ -96,7 +96,9 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                //Refresh when cant get data
+//                finish();
+//                startActivity(getIntent());
             }
         });
         reference.addValueEventListener(new ValueEventListener() {        // get data from firebase when change
@@ -120,6 +122,9 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                //Refresh when cant get data
+//                finish();
+//                startActivity(getIntent());
             }
         });
 
@@ -291,4 +296,12 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
         Intent intent =new Intent(MainMenu.this,alarmMainActivity.class);
         startActivity(intent);
     }
+//    @Override
+//    public void onResume()
+//    {  // After a pause OR at startup
+//        super.onResume();
+//        //Refresh your stuff here
+//        finish();
+//        startActivity(getIntent());
+//    }
 }

@@ -31,6 +31,115 @@
                 android:hint="enter widget's name here" />
         </LinearLayout>
         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="pick a pin on esp8266"
+                android:textSize="20dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp">
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <Button
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/D0"
+                        android:backgroundTint="#C0C0C0"
+                        android:text="D0" />
+                    <Button
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/D1"
+                        android:backgroundTint="#C0C0C0"
+                        android:text="D1" />
+                    <Button
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/D2"
+                        android:backgroundTint="#C0C0C0"
+                        android:text="D2" />
+                    <Button
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/D3"
+                        android:backgroundTint="#C0C0C0"
+                        android:text="D3" />
+                    <Button
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/D4"
+                        android:backgroundTint="#C0C0C0"
+                        android:text="D4" />
+                    <Button
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/D5"
+                        android:backgroundTint="#C0C0C0"
+                        android:text="D5" />
+                    <Button
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/D6"
+                        android:backgroundTint="#C0C0C0"
+                        android:text="D6" />
+                    <Button
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/D7"
+                        android:backgroundTint="#C0C0C0"
+                        android:text="D7" />
+                    <Button
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/D8"
+                        android:backgroundTint="#C0C0C0"
+                        android:text="D8" />
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+<!--            <EditText-->
+<!--                android:id="@+id/espPin"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:ems="10"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textSize="20dp"-->
+<!--                android:inputType="textPersonName"-->
+<!--                android:hint="enter pin on esp8266" />-->
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"

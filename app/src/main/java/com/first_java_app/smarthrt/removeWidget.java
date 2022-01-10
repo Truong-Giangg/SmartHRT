@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -70,13 +72,24 @@ public class removeWidget extends AppCompatActivity implements View.OnClickListe
                 }
                 if(swap){ // create another child and move next data to it
                     if(i!=currentWidget-1){
-                        UserHelperClassGadget movedChild =new UserHelperClassGadget(userGet[i].getBtnID(), userGet[i+1].getbtnName(), userGet[i+1].getbtnValue(),userGet[i+1].getWidType(),userGet[i+1].getGestureT());
+                        UserHelperClassGadget movedChild =new UserHelperClassGadget(userGet[i].getBtnID(), userGet[i+1].getbtnName(), userGet[i+1].getbtnValue(),userGet[i+1].getWidType(),userGet[i+1].getGestureT(),userGet[i+1].getEspPin());
                         reference.child(String.valueOf(userGet[i].getBtnID())).setValue(movedChild);
 
                     }
                     else{
-                        reference.child(String.valueOf(userGet[currentWidget-1].getBtnID())).removeValue();// delete the last child
-                        gobackMainMenu(view);
+                        reference.child(String.valueOf(userGet[currentWidget-1].getBtnID())).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+
+                                //--------------push data to MainMenu acctivity via username------------
+                                Intent intent =new Intent(removeWidget.this,MainMenu.class);
+                                //intent.putExtra("username",MainActivity.user_username_gadget);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                                removeWidget.this.finish();
+                                //--------------end push data to MainMenu acctivity via username------------
+                            }
+                        });
                     }
                 }
             }
@@ -84,10 +97,10 @@ public class removeWidget extends AppCompatActivity implements View.OnClickListe
 
         }
     }
-    public void gobackMainMenu(View view){
-        Intent intent =new Intent(getApplicationContext(),MainMenu.class);
-
-        startActivity(intent);
-        this.finish();
-    }
+//    public void gobackMainMenu(View view){
+//        Intent intent =new Intent(removeWidget.this,MainMenu.class);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        startActivity(intent);
+//        removeWidget.this.finish();
+//    }
 }
