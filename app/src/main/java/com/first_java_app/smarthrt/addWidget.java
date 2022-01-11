@@ -59,9 +59,6 @@ public class addWidget extends AppCompatActivity implements View.OnClickListener
         //--------------fetch data from previous activity----------
         reference = FirebaseDatabase.getInstance().getReference("users");
         Intent intent =getIntent();
-//        if(intent.getStringExtra("username")!=null){
-//            MainActivity.user_username_gadget =intent.getStringExtra("username");
-//        }
         if(intent.getStringExtra("widgetChild")!=null){
             MainActivity.widgetChild =intent.getStringExtra("widgetChild");
         }
@@ -75,30 +72,18 @@ public class addWidget extends AppCompatActivity implements View.OnClickListener
         if(view.getId() == R.id.addWidgetSwitch){
             widgetName_s = widgetNameAdd.getText().toString();
             widgetNameAdd.setText("");//clear the field when button pushed
-
-//            espPin_s = espPin.getText().toString();
-//            espPin.setText("");//clear the field when button pushed
-
             widgetType = "button";
             gobackMainMenu(view);
         }
         if(view.getId() == R.id.addWidgetSlider){
             widgetName_s = widgetNameAdd.getText().toString();
             widgetNameAdd.setText("");//clear the field when button pushed
-
-//            espPin_s = espPin.getText().toString();
-//            espPin.setText("");//clear the field when button pushed
-
             widgetType = "seekbar";
             gobackMainMenu(view);
         }
         if(view.getId() == R.id.addWidgetTemp){
             widgetName_s = widgetNameAdd.getText().toString();
             widgetNameAdd.setText("");//clear the field when button pushed
-
-//            espPin_s = espPin.getText().toString();
-//            espPin.setText("");//clear the field when button pushed
-
             widgetType = "temperature";
             gobackMainMenu(view);
         }

@@ -22,7 +22,7 @@ public class removeWidget extends AppCompatActivity implements View.OnClickListe
     Button rmWidget;
     EditText widgetNameRm;
     boolean swap=false;
-    public static int currentWidget;
+    private int currentWidget;
     String widgetName_s;
 
 
@@ -80,14 +80,7 @@ public class removeWidget extends AppCompatActivity implements View.OnClickListe
                         reference.child(String.valueOf(userGet[currentWidget-1].getBtnID())).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-
-                                //--------------push data to MainMenu acctivity via username------------
-                                Intent intent =new Intent(removeWidget.this,MainMenu.class);
-                                //intent.putExtra("username",MainActivity.user_username_gadget);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(intent);
-                                removeWidget.this.finish();
-                                //--------------end push data to MainMenu acctivity via username------------
+                                gobackMainMenu(view);
                             }
                         });
                     }
@@ -97,10 +90,11 @@ public class removeWidget extends AppCompatActivity implements View.OnClickListe
 
         }
     }
-//    public void gobackMainMenu(View view){
-//        Intent intent =new Intent(removeWidget.this,MainMenu.class);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        startActivity(intent);
-//        removeWidget.this.finish();
-//    }
+
+    public void gobackMainMenu(View view){
+        Intent intent =new Intent(removeWidget.this,MainMenu.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        removeWidget.this.finish();
+    }
 }

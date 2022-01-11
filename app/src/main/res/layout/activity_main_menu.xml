@@ -66,15 +66,15 @@
                     android:layout_gravity="center"
                     android:orientation="vertical"
                     android:id="@+id/layoutTemp">
-                    <TextView
-                        android:id="@+id/textTemp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:text="Temperature"
-                        />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textTemp"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_centerHorizontal="true"-->
+<!--                        android:gravity="center"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:text="Temperature"-->
+<!--                        />-->
                 </LinearLayout>
             </ScrollView>
             <ScrollView
@@ -89,15 +89,15 @@
                     android:layout_gravity="center"
                     android:orientation="vertical"
                     android:id="@+id/layoutswitch">
-                    <TextView
-                        android:id="@+id/textswitch"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:text="Switches"
-                        />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textswitch"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_centerHorizontal="true"-->
+<!--                        android:gravity="center"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:text="Switches"-->
+<!--                        />-->
                 </LinearLayout>
             </ScrollView>
             <ScrollView
@@ -112,15 +112,15 @@
                     android:layout_gravity="center"
                     android:orientation="vertical"
                     android:id="@+id/layoutseekbar">
-                    <TextView
-                        android:id="@+id/textseekbar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:text="Sliders"
-                        />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textseekbar"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_centerHorizontal="true"-->
+<!--                        android:gravity="center"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:text="Sliders"-->
+<!--                        />-->
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
