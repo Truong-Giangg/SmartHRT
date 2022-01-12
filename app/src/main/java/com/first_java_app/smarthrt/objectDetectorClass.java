@@ -1,6 +1,4 @@
 package com.first_java_app.smarthrt;
-// moi vao kiem tra tung switch: switch ung voi moi cu chi(a, b, c, d)
-// setting: them cu chi a, b, c, d vao tung swtich
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -212,7 +210,7 @@ public class objectDetectorClass {
                 String sign_val = getAlphabets(output_class_value[0][0]);
                 alphaOut = sign_val;
                 //              input/output        text            starting point              font size
-                Imgproc.putText(rotated_mat_image,""+sign_val,new Point(x1+10,y1+40),2,1.5,new Scalar(255, 255, 255, 255),2);
+                //Imgproc.putText(rotated_mat_image,""+sign_val,new Point(x1+10,y1+40),2,1.5,new Scalar(255, 255, 255, 255),2);
                 Imgproc.rectangle(rotated_mat_image,new Point(x1,y1),new Point(x2,y2),new Scalar(0, 255, 0, 255),2);
             }
 

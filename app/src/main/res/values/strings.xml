@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SmartHRT</string>
+    <string name="action_gesture">Gesture</string>
+    <string name="action_alarm">Alarm</string>
+    <string name="action_voice">Voice</string>
+    <string name="action_ipcam">IPcam</string>
 </resources>

@@ -66,9 +66,10 @@ public class switchGesture extends AppCompatActivity{
                         gadgetList.setId(Integer.parseInt(userget.getBtnID()));
                         swID[userNum] = Integer.parseInt(userget.getBtnID());
 
-                        LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                        LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                         params1.setMargins(0, 30, 0, 30);
                         params1.gravity = Gravity.CENTER;
+                        gadgetList.setGravity(Gravity.CENTER);
                         gadgetList.setLayoutParams(params1);
                         linearLayout.addView(gadgetList);
 

@@ -68,7 +68,7 @@ public class addGesture extends AppCompatActivity implements View.OnClickListene
     public void onClick(View view) {
         for(int i=0; i<size; i++){
             if(view.getId() == swID[i]){
-                Toast.makeText(addGesture.this, "btn ID: "+swID[i], Toast.LENGTH_LONG).show();
+                //Toast.makeText(addGesture.this, "btn ID: "+swID[i], Toast.LENGTH_LONG).show();
                 gotoGestureList(view, swID[i]);
 
             }

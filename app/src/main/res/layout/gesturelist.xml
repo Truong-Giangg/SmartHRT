@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/btn_bg_1"
     tools:context=".gestureList">
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,9 +25,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
-                android:ems="8"
+                android:ems="10"
                 android:layout_weight="1"
-                android:text="choose button state"
+                android:text="Pick on/off gesture"
                 android:textSize="20dp"
                 />
 <!--            <Switch-->

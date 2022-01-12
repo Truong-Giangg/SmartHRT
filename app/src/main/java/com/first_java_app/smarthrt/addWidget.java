@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -101,6 +102,9 @@ public class addWidget extends AppCompatActivity implements View.OnClickListener
         reference.child(String.valueOf(widgetChildH)).setValue(helperClass).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
+                // hide virtual keyboard
+                InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
 
                 //--------------push data to MainMenu acctivity via username------------
                 Intent intent =new Intent(addWidget.this,MainMenu.class);

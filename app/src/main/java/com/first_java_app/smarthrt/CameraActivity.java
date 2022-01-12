@@ -12,6 +12,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -42,12 +43,19 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
     private objectDetectorClass objectDetectorClass;
     private String preAlpha, alpha;
     final Handler handler = new Handler();
-    final int delay = 2000; // 1000 milliseconds == 1 second
+    final Handler mHandler = new Handler();
+    final int delay = 2000; //milliseconds
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     UserHelperClassGadget[] userGet;
     int size;
+    TextView textPredict;
 
+    final Runnable mshowPredict = new Runnable() {
+        public void run() {
+            showPredict();
+        }
+    };
     private BaseLoaderCallback mLoaderCallback =new BaseLoaderCallback(this) {
         @Override
         public void onManagerConnected(int status) {
@@ -85,7 +93,7 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
         }
 
         setContentView(R.layout.activity_main_gesture);
-
+        textPredict=findViewById(R.id.showPredict);
         mOpenCvCameraView=(CameraBridgeViewBase) findViewById(R.id.frame_Surface);
         CameraActivity.this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
@@ -125,22 +133,7 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
                 if(preAlpha!=null&&alpha!=null){
                     if(preAlpha.equals(alpha)){
                         //Toast.makeText(CameraActivity.this, "du 2 s:"+alpha, Toast.LENGTH_SHORT).show();
-                        for(int i =0; i<size;i++){
-                            if(userGet[i].getWidType().equals("button")){
-                                if(alpha.equals(String.valueOf(userGet[i].getGestureT().charAt(0)))){
-                                    Toast.makeText(CameraActivity.this, "bat den: "+userGet[i].btnName, Toast.LENGTH_SHORT).show();
-                                    userGet[i].btnValue = "1";
-                                    reference.child(String.valueOf(i)).setValue(userGet[i]);
-                                }
-                                else if(alpha.equals(String.valueOf(userGet[i].getGestureT().charAt(1)))){
-                                    Toast.makeText(CameraActivity.this, "tat den: "+userGet[i].btnName, Toast.LENGTH_SHORT).show();
-                                    userGet[i].btnValue = "0";
-                                    reference.child(String.valueOf(i)).setValue(userGet[i]);
-                                }
-                            }
-                        }
-
-
+                        checkAndPushData();
                     }
                 }
                 preAlpha=alpha;
@@ -196,7 +189,40 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
         out=objectDetectorClass.recognizeImage(mRgba);
 //        System.out.println("bien"+objectDetectorClass.alphaOut);
         alpha = objectDetectorClass.alphaOut;
+        mHandler.post(mshowPredict);
         return out;
+    }
+    public void showPredict(){
+        textPredict.setText("undefined");
+        for(int i =0; i<size;i++){
+            if(userGet[i].getWidType().equals("button")){
+                if(alpha!=null){
+
+                    if(alpha.equals(String.valueOf(userGet[i].getGestureT().charAt(0)))){
+                        textPredict.setText("bat "+userGet[i].btnName+"?");
+                    }else if(alpha.equals(String.valueOf(userGet[i].getGestureT().charAt(1)))){
+                        textPredict.setText("tat "+userGet[i].btnName+"?");
+                    }
+                }
+                else textPredict.setText("no hand");
+            }
+        }
+    }
+    public void checkAndPushData(){
+        for(int i =0; i<size;i++){
+            if(userGet[i].getWidType().equals("button")){
+                if(alpha.equals(String.valueOf(userGet[i].getGestureT().charAt(0)))){
+                    Toast.makeText(CameraActivity.this, "da bat: "+userGet[i].btnName, Toast.LENGTH_SHORT).show();
+                    userGet[i].btnValue = "1";
+                    reference.child(String.valueOf(i)).setValue(userGet[i]);
+                }
+                else if(alpha.equals(String.valueOf(userGet[i].getGestureT().charAt(1)))){
+                    Toast.makeText(CameraActivity.this, "da tat: "+userGet[i].btnName, Toast.LENGTH_SHORT).show();
+                    userGet[i].btnValue = "0";
+                    reference.child(String.valueOf(i)).setValue(userGet[i]);
+                }
+            }
+        }
     }
     public void backHome(View view) {
         Intent intent =new Intent(CameraActivity.this,MainMenu.class);

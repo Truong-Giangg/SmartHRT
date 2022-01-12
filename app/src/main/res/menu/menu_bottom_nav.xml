@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_gesture"
+        android:title="@string/action_gesture"
+        android:icon="@drawable/handicon"
+        ></item>
+    <item
+        android:id="@+id/action_alarm"
+        android:title="@string/action_alarm"
+        android:icon="@drawable/alarmicon"
+        ></item>
+    <item
+        android:id="@+id/action_voice"
+        android:title="@string/action_voice"
+        android:icon="@drawable/voiceicon"
+        ></item>
+    <item
+        android:id="@+id/action_ipcam"
+        android:title="@string/action_ipcam"
+        android:icon="@drawable/cameraicon"
+        ></item>
+
+</menu>
