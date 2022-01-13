@@ -9,11 +9,22 @@ import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Music extends Service {
     MediaPlayer mediaPlayer;
     private int id;
+
+
+
 
     @Nullable
     @Override
@@ -37,22 +48,25 @@ public class Music extends Service {
         if(id == 1){
             mediaPlayer =MediaPlayer.create(this,R.raw.nokia_tune_original_ringtone_alarm);
             mediaPlayer.start();
+            MainActivity.alarmActive ="1";
 
-
-            new CountDownTimer(2000, 100) {
-                @Override
-                public void onTick(long millisUntilFinished) {
-                    Toast.makeText(Music.this, "Vui lòng tắt báo thức", Toast.LENGTH_SHORT).show();
-                }
-                @Override
-                public void onFinish() {
-
-                }
-            }.start();
+//            new CountDownTimer(2000, 100) {
+//                @Override
+//                public void onTick(long millisUntilFinished) {
+//                    Toast.makeText(Music.this, "Vui lòng tắt báo thức", Toast.LENGTH_SHORT).show();
+//                }
+//                @Override
+//                public void onFinish() {
+//
+//                }
+//            }.start();
+            Toast.makeText(Music.this, "Vui lòng tắt báo thức", Toast.LENGTH_SHORT).show();
             id=0;
+
         }else if(id==0){
             mediaPlayer.stop();
             mediaPlayer.reset();
+            MainActivity.alarmActive ="0";
         }
         return START_NOT_STICKY;
     }

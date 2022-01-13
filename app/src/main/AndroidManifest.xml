@@ -32,6 +32,8 @@
         android:theme="@style/Theme.SmartHRT"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".pickAlarm"/>
+        <activity
             android:name=".switchGesture"/>
         <activity
             android:name=".gestureList"/>

@@ -31,21 +31,21 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class gestureList extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener{
+public class gestureList extends AppCompatActivity implements View.OnClickListener{
     public static int[] gestureID = new int[25];
     public static String[] gestureType = new String[25];
     String onStatus="";
     FirebaseDatabase rootNode;
     DatabaseReference reference;
-    //Switch state;
+
     int count=0;
+    private int currentWidget;
     UserHelperClassGadget[] userGet;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gesturelist);
-        //state=findViewById(R.id.stateBtn);
-        //state.setOnCheckedChangeListener(gestureList.this);
+
 
         ScrollView scrollView = new ScrollView(gestureList.this);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
@@ -100,6 +100,7 @@ public class gestureList extends AppCompatActivity implements View.OnClickListen
                     userGet[userNum] = snapshot.getValue(UserHelperClassGadget.class);//get data store to class
                     userNum++;
                 }
+                currentWidget = (int) dataSnapshot.getChildrenCount();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -114,22 +115,39 @@ public class gestureList extends AppCompatActivity implements View.OnClickListen
                 count++;
                 onStatus = onStatus+gestureType[i];
                 if(count==1){
-                    Toast.makeText(gestureList.this, "Chọn hành động tắt", Toast.LENGTH_LONG).show();
+                    Toast.makeText(gestureList.this, "Chọn hành động tắt", Toast.LENGTH_SHORT).show();
                 }
-                //Toast.makeText(gestureList.this, "gesture ID: "+gestureID[i]+": "+gestureType[i], Toast.LENGTH_LONG).show();
                 if(count==2){
                     count=0;
-                    userGet[Integer.parseInt(MainActivity.gestureChild)].gestureT = onStatus;
-                    reference.child(String.valueOf(MainActivity.gestureChild)).setValue(userGet[Integer.parseInt(MainActivity.gestureChild)]);
-                    Toast.makeText(gestureList.this, "Chọn xong", Toast.LENGTH_LONG).show();
+                    if(validPick()){
+                        userGet[Integer.parseInt(MainActivity.gestureChild)].gestureT = onStatus;
+                        reference.child(String.valueOf(MainActivity.gestureChild)).setValue(userGet[Integer.parseInt(MainActivity.gestureChild)]);
+                        gotoCameraA(view);
+                    }
                     onStatus="";
-                    gotoCameraA(view);
                 }
             }
         }
     }
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+    private boolean validPick(){
+        for(int i=0; i<currentWidget;i++){
+            if(userGet[i].getWidType().equals("button")){
+                if(userGet[i].getGestureT().charAt(0)==onStatus.charAt(0)||userGet[i].getGestureT().charAt(0)==onStatus.charAt(1)){
+                    Toast.makeText(gestureList.this, "On gesture has already exists!!", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+                if(userGet[i].getGestureT().charAt(1)==onStatus.charAt(1)||userGet[i].getGestureT().charAt(1)==onStatus.charAt(0)){
+                    Toast.makeText(gestureList.this, "Off gesture has already exists!!", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+                if(onStatus.charAt(0)==onStatus.charAt(1)){
+                    Toast.makeText(gestureList.this, "On/Off can not use the same gesture!!", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+            }
 
+        }
+        return true;
     }
     private Bitmap getBitmapFromAsset(String paramString) {
         Object localObject = getResources().getAssets();

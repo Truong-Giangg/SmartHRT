@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -49,7 +50,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.action_alarm:
-                        startActivity(new Intent(MainMenu.this,alarmMainActivity.class));
+                        startActivity(new Intent(MainMenu.this,pickAlarm.class));
                         break;
                     case R.id.action_voice:
 
@@ -110,13 +111,6 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
     }
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
-        for(int i=0; i<currentWidget;i++){
-            if(seekBar.getId() == Integer.parseInt(userGet[i].getBtnID())){
-                if(userGet[i].getWidType().equals("seekbar")){
-                    userGet[i].btnValue = String.valueOf(progress);
-                }
-            }
-        }
     }
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
@@ -127,6 +121,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
 
             if(seekBar.getId() ==Integer.parseInt(userGet[i].getBtnID())){
                 if(userGet[i].getWidType().equals("seekbar")){
+                    userGet[i].btnValue = String.valueOf(seekBar.getProgress());
                     pushSbData2Firebase(addedWidgetSB,i,String.valueOf(addedWidgetSB[i].getId()));
                 }
             }
@@ -246,7 +241,6 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
 
     public void gotoaddWidget(View view){
         Intent intent =new Intent(MainMenu.this,addWidget.class);
-        intent.putExtra("widgetChild",String.valueOf(currentWidget));
         startActivity(intent);
     }
     public void gotoremoveWidget(View view){

@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private static int SPLASH_SCREEN=5000;
-    public static String user_username_gadget, widgetChild, gestureChild; //variable for handGesture class
+    public static String user_username_gadget, gestureChild, alarmActive="0"; //variable for handGesture class
 
     Animation topAnim, bottomAnim;
     ImageView image;
