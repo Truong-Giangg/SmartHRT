@@ -29,7 +29,7 @@
                 android:layout_weight="1"
                 android:textSize="20dp"
                 android:inputType="textPersonName"
-                android:hint="enter widget's name here" />
+                android:hint="nhập tên thiết bị" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:layout_weight="1"
-                android:text="pick a pin on esp8266"
+                android:text="chọn 1 chân trên esp8266"
                 android:textSize="20dp"
                 />
         </LinearLayout>
@@ -133,7 +133,7 @@
                 android:gravity="center"
                 android:ems="10"
                 android:layout_weight="1"
-                android:text="pick widget's type"
+                android:text="chọn loại thiết bị"
                 android:textSize="20dp"
                 />
         </LinearLayout>
@@ -151,7 +151,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_centerHorizontal="true"
-                android:text="slider" />
+                android:text="thanh gạt" />
             <Button
                 android:id="@+id/addWidgetSwitch"
                 android:layout_width="0dp"
@@ -160,7 +160,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_centerHorizontal="true"
-                android:text="Switch" />
+                android:text="Nút gạt" />
 
 
         </LinearLayout>
@@ -178,7 +178,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_centerHorizontal="true"
-                android:text="Temperature sensor" />
+                android:text="cảm biến nhiệt độ" />
 
         </LinearLayout>
     </LinearLayout>

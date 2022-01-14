@@ -193,18 +193,18 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
         return out;
     }
     public void showPredict(){
-        textPredict.setText("undefined");
+        textPredict.setText("chưa thêm cử chỉ!!");
         for(int i =0; i<size;i++){
             if(userGet[i].getWidType().equals("button")){
                 if(alpha!=null){
 
                     if(alpha.equals(String.valueOf(userGet[i].getGestureT().charAt(0)))){
-                        textPredict.setText("bat "+userGet[i].btnName+"?");
+                        textPredict.setText("giữ 2 giây để bật "+userGet[i].btnName);
                     }else if(alpha.equals(String.valueOf(userGet[i].getGestureT().charAt(1)))){
-                        textPredict.setText("tat "+userGet[i].btnName+"?");
+                        textPredict.setText("giữ 2 giây để tắt "+userGet[i].btnName);
                     }
                 }
-                else textPredict.setText("no hand");
+                else textPredict.setText("chưa phát hiện tay!!");
             }
         }
     }
@@ -212,12 +212,12 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
         for(int i =0; i<size;i++){
             if(userGet[i].getWidType().equals("button")){
                 if(alpha.equals(String.valueOf(userGet[i].getGestureT().charAt(0)))){
-                    Toast.makeText(CameraActivity.this, "da bat: "+userGet[i].btnName, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CameraActivity.this, "đã bật: "+userGet[i].btnName, Toast.LENGTH_SHORT).show();
                     userGet[i].btnValue = "1";
                     reference.child(String.valueOf(i)).setValue(userGet[i]);
                 }
                 else if(alpha.equals(String.valueOf(userGet[i].getGestureT().charAt(1)))){
-                    Toast.makeText(CameraActivity.this, "da tat: "+userGet[i].btnName, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CameraActivity.this, "đã tắt: "+userGet[i].btnName, Toast.LENGTH_SHORT).show();
                     userGet[i].btnValue = "0";
                     reference.child(String.valueOf(i)).setValue(userGet[i]);
                 }

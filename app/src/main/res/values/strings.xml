@@ -4,4 +4,5 @@
     <string name="action_alarm">Alarm</string>
     <string name="action_voice">Voice</string>
     <string name="action_ipcam">IPcam</string>
+    <string name="action_logout">Logout</string>
 </resources>

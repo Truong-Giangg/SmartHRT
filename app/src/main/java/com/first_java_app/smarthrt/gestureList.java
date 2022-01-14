@@ -133,15 +133,15 @@ public class gestureList extends AppCompatActivity implements View.OnClickListen
         for(int i=0; i<currentWidget;i++){
             if(userGet[i].getWidType().equals("button")){
                 if(userGet[i].getGestureT().charAt(0)==onStatus.charAt(0)||userGet[i].getGestureT().charAt(0)==onStatus.charAt(1)){
-                    Toast.makeText(gestureList.this, "On gesture has already exists!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(gestureList.this, "Cử chỉ bật đã được chọn rồi, mời chọn lại!!", Toast.LENGTH_SHORT).show();
                     return false;
                 }
                 if(userGet[i].getGestureT().charAt(1)==onStatus.charAt(1)||userGet[i].getGestureT().charAt(1)==onStatus.charAt(0)){
-                    Toast.makeText(gestureList.this, "Off gesture has already exists!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(gestureList.this, "Cử chỉ tắt đã được chọn rồi, mời chọn lại!!", Toast.LENGTH_SHORT).show();
                     return false;
                 }
                 if(onStatus.charAt(0)==onStatus.charAt(1)){
-                    Toast.makeText(gestureList.this, "On/Off can not use the same gesture!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(gestureList.this, "Cử chỉ bật bị trùng với cử chỉ tắt, chọn lại!!", Toast.LENGTH_SHORT).show();
                     return false;
                 }
             }

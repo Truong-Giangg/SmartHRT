@@ -95,6 +95,7 @@ public class UserMenu extends AppCompatActivity {
         Intent intent =new Intent(getApplicationContext(),MainMenu.class);
         intent.putExtra("username",user_username);
         startActivity(intent);
+        UserMenu.this.finish();
         //--------------end push data to MainMenu acctivity via username------------
 //        Intent intent =new Intent(UserMenu.this,MainMenu.class);
 //        startActivity(intent);

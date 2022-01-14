@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:onClick="backHome"
             android:layout_weight="1"
-            android:text="back"
+            android:text="quay lại"
             android:textAllCaps="false"
             android:padding="0dp"
             android:layout_marginTop="20dp"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:onClick="goAddGesture"
             android:layout_weight="1"
-            android:text="setting"
+            android:text="thêm"
             android:textAllCaps="false"
             android:layout_marginTop="20dp"
 
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:onClick="goSwitchGesture"
-            android:text="added"
+            android:text="kiểm tra"
             android:textAllCaps="false"
             android:layout_weight="1"/>
 <!--            android:background="@drawable/listicon"-->

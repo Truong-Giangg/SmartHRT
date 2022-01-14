@@ -27,7 +27,7 @@
                 android:gravity="center"
                 android:ems="10"
                 android:layout_weight="1"
-                android:text="Pick on/off gesture"
+                android:text="Chọn cử chỉ bật/tắt"
                 android:textSize="20dp"
                 />
 <!--            <Switch-->

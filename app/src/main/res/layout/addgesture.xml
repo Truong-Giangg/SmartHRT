@@ -25,9 +25,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
-                android:ems="8"
+                android:ems="15"
                 android:layout_weight="1"
-                android:text="Pick a Switch!!"
+                android:text="Hãy chọn 1 công tắc"
                 android:textSize="20dp"
                 />
         </LinearLayout>

@@ -1,10 +1,12 @@
 package com.first_java_app.smarthrt;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,13 +55,20 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
                         startActivity(new Intent(MainMenu.this,pickAlarm.class));
                         break;
                     case R.id.action_voice:
-
+                        //startActivity(new Intent(MainMenu.this,Voice.class));
+                        Intent intent=new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+                        startActivityForResult(intent,100);
                         break;
                     case R.id.action_gesture:
                         startActivity(new Intent(MainMenu.this,CameraActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
                         break;
                     case R.id.action_ipcam:
                         startActivity(new Intent(MainMenu.this,ipCamere.class));
+                        break;
+                    case R.id.action_logout:
+                        startActivity(new Intent(MainMenu.this,Login.class));
+                        MainMenu.this.finish();
                         break;
                 }
                 return true;
@@ -142,6 +151,38 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener,
             }
             //System.out.println("type:"+userGet[i].getWidType());
         }
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        try{
+            String a=new String(data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0));
+            for(int i =0;i<currentWidget;i++){
+                if(userGet[i].getWidType().equals("button")){
+                    if(a.contentEquals("Bật "+userGet[i].getbtnName())||a.contentEquals("bật "+userGet[i].getbtnName())){
+                        userGet[i].btnValue="1";
+                        reference.child(userGet[i].getBtnID()).setValue(userGet[i]);
+                        Toast.makeText(MainMenu.this, "đã bật "+userGet[i].getbtnName(), Toast.LENGTH_LONG).show();
+                    }
+                    else if(a.contentEquals("Tắt "+userGet[i].getbtnName())||a.contentEquals("tắt "+userGet[i].getbtnName())){
+                        userGet[i].btnValue="0";
+                        reference.child(userGet[i].getBtnID()).setValue(userGet[i]);
+                        Toast.makeText(MainMenu.this, "đã tắt "+userGet[i].getbtnName(), Toast.LENGTH_LONG).show();
+                    }
+//                else {
+//                    Toast.makeText(Voice.this, "không tìm thấy thiết bị! ", Toast.LENGTH_LONG).show();
+//                }
+                }
+
+            }
+        }catch (Exception e){
+            Intent intent = getIntent();
+            finish();
+            startActivity(intent);
+        }
+
+
+
     }
     public void createSwitch(Switch sw[], int count, String swType,String swId, String swName, String swValue){
         addedWidgetSW[count] = new Switch(MainMenu.this);

@@ -115,19 +115,19 @@ public class addWidget extends AppCompatActivity implements View.OnClickListener
     private boolean validInput(){
         for(int i=0; i<currentWidget;i++){
             if(userGet[i].getbtnName().equals(widgetName_s)){
-                Toast.makeText(addWidget.this, "Name has already exists!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(addWidget.this, "Tên đã tồn tại, chọn lại!!", Toast.LENGTH_SHORT).show();
                 return false;
             }
             if(userGet[i].getEspPin().equals(espPin_s)){
-                Toast.makeText(addWidget.this, "Pin has already picked!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(addWidget.this, "Chân esp8266 đã chọn rồi, chọn lại!!", Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(widgetName_s.isEmpty()){
-            Toast.makeText(addWidget.this, "Name can not empty!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(addWidget.this, "Tên không được bỏ trống!!", Toast.LENGTH_SHORT).show();
             return false;
         }else if(espPin_s.isEmpty()){
-            Toast.makeText(addWidget.this, "Pick a pin!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(addWidget.this, "Hãy chọn 1 chân esp8266!!", Toast.LENGTH_SHORT).show();
             return false;
         }else return true;
     }

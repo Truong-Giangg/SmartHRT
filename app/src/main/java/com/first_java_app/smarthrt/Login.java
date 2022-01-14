@@ -137,6 +137,7 @@ public class Login extends AppCompatActivity {
                         intent.putExtra("password",passwordFromDB);
 
                         startActivity(intent);
+                        Login.this.finish();
                     }
                     else {
                         password.setError("Wrong Password");
