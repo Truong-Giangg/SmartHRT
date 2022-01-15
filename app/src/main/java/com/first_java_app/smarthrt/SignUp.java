@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,7 +18,7 @@ public class SignUp extends AppCompatActivity {
     Button regBtn, regToLoginbtn;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
-
+    String _USERNAME;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +31,7 @@ public class SignUp extends AppCompatActivity {
         regPhoneNo=findViewById(R.id.reg_PhoneNo);
         regBtn=findViewById(R.id.reg_btn);
         regToLoginbtn=findViewById(R.id.reg_login_btn);
+        reference = FirebaseDatabase.getInstance().getReference("users");
 
         regToLoginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,9 +41,6 @@ public class SignUp extends AppCompatActivity {
                 finish();
             }
         });
-
-
-
     }
 
     private Boolean validateName(){
@@ -57,28 +56,7 @@ public class SignUp extends AppCompatActivity {
         }
 
     }
-    private Boolean validateUserName(){
-        String val =regUsername.getEditText().getText().toString();
-        String nowhiteSpace = "(?=\\s+$)";  //  \A\w{4,20}\z
 
-        if(val.isEmpty()) {
-            regUsername.setError("cannot be empty");
-            return false;
-        }
-        else if(val.length()>=15){
-            regUsername.setError("Username too long");
-            return false;
-        }
-        else if (val.matches(nowhiteSpace)){
-            regUsername.setError("white space are not allowed");
-            return false;
-        }
-        else{
-            regUsername.setError(null);
-            return true;
-        }
-
-    }
     private Boolean validateEmail(){
         String val =regEmail.getEditText().getText().toString();
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -96,22 +74,21 @@ public class SignUp extends AppCompatActivity {
             regEmail.setErrorEnabled(false);
             return true;
         }
-
     }
     private Boolean validatePhoneNo(){
         String val =regPhoneNo.getEditText().getText().toString();
-
-
         if(val.isEmpty()) {
             regPhoneNo.setError("cannot be empty");
             return false;
+        }else
+        if(val.length()>=11){
+            regPhoneNo.setError("too long again");
+            return false;
         }
-
         else{
             regPhoneNo.setError(null);
             return true;
         }
-
     }
     private Boolean validatePassword(){
         String val =regPassword.getEditText().getText().toString();
@@ -128,53 +105,48 @@ public class SignUp extends AppCompatActivity {
             regPassword.setError(null);
             return true;
         }
-
     }
-
+    private Boolean validateUserName(){
+        String val =regUsername.getEditText().getText().toString();
+        if(val.isEmpty()) {
+            regUsername.setError("cannot be empty");
+            return false;
+        }
+        else if(val.length()>=15) {
+            regUsername.setError("Username too long");
+            return false;
+        }
+        else{
+            regUsername.setError(null);
+            return true;
+        }
+    }
     //sava data in firebase on button click
     public void registerUser(View view) {
 
+        if(!validateName() | !validateUserName() | !validateEmail() | !validatePhoneNo() | !validatePassword()){
+            validateName();
+            validateUserName();
+            validateEmail();
+            validatePhoneNo();
+            validatePassword();
+            return;   //set bao loi
+        }
 
-
-     //   regBtn.setOnClickListener(new View.OnClickListener() {
-      //      @Override
-      //      public void onClick(View view) {
-                if(!validateName()){
-                    validateName();
-                    return;   //set bao loi
-                }
-                if(!validateUserName()){
-                    validateUserName();
-                    return;   //set bao loi
-                }
-                if(!validateEmail()){
-                    validateEmail();
-                    return;   //set bao loi
-                }
-                if(!validatePhoneNo()){
-                    validatePhoneNo();
-                    return;   //set bao loi
-                }
-                if(!validatePassword()){
-                    validatePassword();
-                    return;   //set bao loi
-                }
-                rootNode=FirebaseDatabase.getInstance();
-                reference=rootNode.getReference("users");
-                //get all the avalue
-                String name = regName.getEditText().getText().toString();
-                String username = regUsername.getEditText().getText().toString();
-                String email = regEmail.getEditText().getText().toString();
-                String phoneNo = regPhoneNo.getEditText().getText().toString();
-                String password = regPassword.getEditText().getText().toString();
-                UserHelperClass helperClass =new UserHelperClass(name, username, email, phoneNo, password);
-                reference.child(username).setValue(helperClass);
-                Intent intent =new Intent(SignUp.this,Login.class);
-                startActivity(intent);
-  //          }
-  //      });
-
-   }
+        Toast.makeText(this, "Created Successful", Toast.LENGTH_SHORT).show();
+        rootNode=FirebaseDatabase.getInstance();
+        reference=rootNode.getReference("users");
+        //get all the avalue
+        String name = regName.getEditText().getText().toString();
+        String username = regUsername.getEditText().getText().toString();
+        String email = regEmail.getEditText().getText().toString();
+        String phoneNo = regPhoneNo.getEditText().getText().toString();
+        String password = regPassword.getEditText().getText().toString();
+        UserHelperClass helperClass =new UserHelperClass(name, username, email, phoneNo, password);
+        reference.child(username).setValue(helperClass);
+        Intent intent =new Intent(SignUp.this,Login.class);
+        startActivity(intent);
+    }
 
 
 
