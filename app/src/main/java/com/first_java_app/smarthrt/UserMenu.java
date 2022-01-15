@@ -113,8 +113,9 @@ public class UserMenu extends AppCompatActivity {
     public void continue123(View view){
         //--------------push data to MainMenu acctivity via username------------
         Intent intent =new Intent(getApplicationContext(),MainMenu.class);
-        intent.putExtra("username",user_username);
+        intent.putExtra("username",_USERNAME);
         startActivity(intent);
+        UserMenu.this.finish();
     }
 }
 
