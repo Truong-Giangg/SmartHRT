@@ -19,7 +19,9 @@
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/border_background.xml" value="0.18489583333333334" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/btn_bg.xml" value="0.2703125" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/btn_bg_1.xml" value="0.2703125" />
+        <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/home_icon.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/logout_icon.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/menu.xml" value="0.2703125" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/seek_bar.xml" value="0.2703125" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/drawable/seek_bar_background.xml" value="0.2703125" />
@@ -46,6 +48,8 @@
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/layout/switchgesture.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/menu/main_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/menu/menu_bottom_nav.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/phamv/AndroidStudioProjects/SmartHRT/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.14635416666666667" />
       </map>
     </option>
   </component>
